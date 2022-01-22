@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.net.SocketException;
 import java.net.URISyntaxException;
 
+import org.apache.log4j.Logger;
+
 import pcControl.data.References;
 import pcControl.deprecated.SocketRunnable;
 import pcControl.execution.GeneralStuff;
@@ -41,6 +43,8 @@ public class PcControlMain {
 
 	public static void main(String[] args) {
 		boolean startNow = false;
+		
+		References.log4j = Logger.getRootLogger();
 
 		GeneralLogger.log("REMOTE PC CONTROL APP - SERVER SIDE");
 		GeneralLogger.log("Starting input thread");
@@ -131,6 +135,7 @@ public class PcControlMain {
 	}
 
 	public void onConsoleCommand(String s) {
+		References.log4j.info("> " + s);
 		s = s.trim();
 		String unknownCommand = "Unknown command or wrong args!";
 		String[] separated = s.split(" ");

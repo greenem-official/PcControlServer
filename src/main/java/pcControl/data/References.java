@@ -7,6 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 public class References {
 	public static String mainVersion = "1.0.0";
 	public static String patchVerion = "2";
@@ -50,4 +52,6 @@ public class References {
 	
 	public static ArrayList<String> foldersAllowedToSee = null;
 	public static ArrayList<String> foldersAndFilesAllowedToExecute = null;
+	
+	public static Logger log4j = null;
 }

@@ -3,6 +3,8 @@ package pcControl.logging;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.apache.log4j.Logger;
+
 import pcControl.data.References;
 
 public class GeneralLogger {
@@ -42,7 +44,8 @@ public class GeneralLogger {
 		if(References.fixEmptyLines) {
     		s = s.replaceAll("\n\n", "\n");
     	}
-		System.out.println("[" + getTime() + "] " + s);
+		//System.out.println("[" + getTime() + "] " + s);
+		References.log4j.info(s);
 	}
 	
 	public static String getTime() {
@@ -52,6 +55,6 @@ public class GeneralLogger {
 	public static String getTime(String pattern) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);  
 		   LocalDateTime now = LocalDateTime.now();  
-		   return dtf.format(now);  
+		   return dtf.format(now);
 	}
 }
