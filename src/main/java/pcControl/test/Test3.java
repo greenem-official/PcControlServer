@@ -1,5 +1,9 @@
 package pcControl.test;
 
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Test3 {
 	public static void main(String[] args) {
 //		File f = new File("c:\\\\adobe\\\\/After effects");
@@ -41,8 +45,12 @@ public class Test3 {
 //			System.out.println("$system.files.changelocation.result.denied.old=" + References.arLocation);	
 //		}
 		
-		String s = "G:";
-		String[] parts = s.split("\\\\");
-		System.out.println(parts.length);
+//		String s = "G:";
+//		String[] parts = s.split("\\\\");
+//		System.out.println(parts.length);
+		File f = new File("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\logs");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("DD-MM-YYYY");  
+		LocalDateTime now = LocalDateTime.now();  
+		f.renameTo(new File("before_" + dtf.format(now) + ".log"));
 	}
 }

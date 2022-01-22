@@ -7,8 +7,11 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.SocketException;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import pcControl.data.References;
 import pcControl.deprecated.SocketRunnable;
@@ -43,8 +46,11 @@ public class PcControlMain {
 
 	public static void main(String[] args) {
 		boolean startNow = false;
+		File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
+		References.appExecutionDir = jarDir;
+		doLoggerFileStuff();
 		
-		References.log4j = Logger.getRootLogger();
+		References.log4j = LogManager.getLogger();
 
 		GeneralLogger.log("REMOTE PC CONTROL APP - SERVER SIDE");
 		GeneralLogger.log("Starting input thread");
@@ -85,8 +91,6 @@ public class PcControlMain {
 
 		// getInstance().test2();
 
-		File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-		References.appExecutionDir = jarDir;
 		//GeneralLogger.log(References.appExecutionDir);
 		
 		GeneralStuff.setConstants();
@@ -200,6 +204,15 @@ public class PcControlMain {
 				GeneralLogger.log(unknownCommand);
 			}
 		}
+	}
+	
+	public static void doLoggerFileStuff() {
+		File logs = new File(References.appExecutionDir, "logs");
+		logs.mkdirs();
+		File last = new File(logs, "last.log");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("DD-MM-YYYY_HH-MM-SS");  
+		LocalDateTime now = LocalDateTime.now();  
+		last.renameTo(new File(References.appExecutionDir, "/logs/before_" + dtf.format(now) + ".log"));
 	}
 
 	public static void doExit() {

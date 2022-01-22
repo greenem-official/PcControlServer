@@ -3,7 +3,7 @@ package pcControl.logging;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import pcControl.data.References;
 
