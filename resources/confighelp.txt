@@ -1,0 +1,31 @@
+This is description for config files for PcControl Server-Side App.
+
+To be correct Yaml file, the config lines should look like this:
+   
+   something:
+      sub-something:
+         - first thing (with space after "-"!)
+         - second thing
+         - C:\
+   some-settings: 1000
+   (... And so on)
+   
+Example of actual usage:
+   
+   settings:
+      folders-allowed-to-see:
+         - all
+      folders-and-files-allowed-to-use-execution:
+         - C:\
+         - D:\
+         - G:\FirstFolder
+         - G:\SecondFolder\
+         - G:\ThirdFolder\app.exe
+
+Available settings:
+
+   folders-allowed-to-see
+   # What folders client will be able to see in the list and enter. Default: * (it means everything)
+   
+   folders-and-files-allowed-to-use-execution:
+   # What folders client will be able to execute files in and single file directories. Default: some random thing after "- "
