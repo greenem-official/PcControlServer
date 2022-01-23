@@ -8,6 +8,6 @@ settings:
    
    # What folders client will be able to execute files in and single file derictories.
    folders-and-files-allowed-to-use-execution:
-      - FoldersOrFilesHere
+      - "G:/"
 
 config-version: 1.0.0-2

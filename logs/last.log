@@ -1,0 +1,74 @@
+2022-01-24 00:11:05.216 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 00:11:05.219 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 00:11:07.061 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:07.072 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $auth.result.accepted
+2022-01-24 00:11:07.072 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:07.075 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:07.488 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:07.489 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:07.496 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $auth.result.accepted
+2022-01-24 00:11:07.498 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:07.502 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:08.330 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:08.330 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:08.336 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:08.336 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:08.342 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $auth.result.accepted
+2022-01-24 00:11:08.346 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 00:11:08.348 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:08.516 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 00:11:46.040 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 00:11:46.043 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 00:11:48.497 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:11:48.549 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $auth.result.accepted
+2022-01-24 00:11:48.786 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 00:11:48.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 00:11:55.471 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: G:\
+2022-01-24 00:11:55.472 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 00:11:59.413 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 00:11:59.464 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 00:11:59.565 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 00:12:02.917 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 00:12:58.516 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $heartbeat.timeout
+2022-01-24 00:12:58.517 INFO [pcControl.network.ArSocketActivityKeeper.run(ArSocketActivityKeeper.java:39)] - Time out
+2022-01-24 00:13:30.952 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 00:13:30.952 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 00:13:30.953 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 00:13:30.954 INFO [pcControl.InputRunnable.onExit(InputRunnable.java:60)] - Closing input
+2022-01-24 00:13:30.955 INFO [pcControl.PcControlMain$1.run(PcControlMain.java:115)] - Succesfully stopped
+2022-01-24 00:13:37.088 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 00:13:37.091 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 00:13:37.417 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:13:37.429 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $auth.result.accepted
+2022-01-24 00:13:37.658 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 00:13:37.659 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 00:13:43.821 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: G:\
+2022-01-24 00:13:43.822 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 00:13:47.509 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 00:14:47.439 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:80)] - RSC sending: $heartbeat.timeout
+2022-01-24 00:14:47.440 INFO [pcControl.network.ArSocketActivityKeeper.run(ArSocketActivityKeeper.java:39)] - Time out
+2022-01-24 00:14:57.366 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 00:14:57.367 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 00:14:57.367 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 00:14:57.368 INFO [pcControl.InputRunnable.onExit(InputRunnable.java:60)] - Closing input
+2022-01-24 00:14:57.369 INFO [pcControl.PcControlMain$1.run(PcControlMain.java:115)] - Succesfully stopped
+2022-01-24 00:15:51.282 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 00:15:51.285 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 00:15:55.518 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 00:15:55.530 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 00:15:55.786 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 00:15:55.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 00:15:58.504 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: C:\g
+2022-01-24 00:15:58.504 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 00:16:03.356 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: C:\g:
+2022-01-24 00:16:03.357 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 00:16:11.520 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: g:\
+2022-01-24 00:16:11.521 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 00:16:25.689 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 00:16:25.715 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 00:16:25.747 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 00:16:29.921 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 00:16:29.921 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 00:16:41.813 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 00:16:41.814 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 00:16:41.814 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
