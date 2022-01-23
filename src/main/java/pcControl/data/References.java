@@ -9,11 +9,15 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.Logger;
 
+import pcControl.network.SocketClient;
+
 public class References {
 	public static String mainVersion = "1.0.0";
 	public static String patchVerion = "2";
 	
 //	private int socketPort = 60000;
+	
+	public static SocketClient sender = null;
 	
 	public static Socket PlSocket = null;
 	public static ServerSocket PlServerSocket = null;
@@ -52,6 +56,7 @@ public class References {
 	
 	public static ArrayList<String> foldersAllowedToSee = null;
 	public static ArrayList<String> foldersAndFilesAllowedToExecute = null;
+	//public static ArrayList<String> foldersAndFilesAllowedToOnlyExecute = null;
 	
 	public static Logger log4j = null;
 }

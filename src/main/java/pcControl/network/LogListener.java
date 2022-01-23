@@ -2,9 +2,15 @@ package pcControl.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+
+import org.apache.logging.log4j.Logger;
+
 import pcControl.PcControlMain;
+import pcControl.data.References;
 
 public class LogListener {
+	private static Logger log = References.log4j;
+	
 	//private Socket socket;
 	private BufferedReader in;
 	private String id;

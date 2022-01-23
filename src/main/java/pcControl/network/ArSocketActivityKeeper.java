@@ -6,12 +6,16 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Calendar;
 
+import org.apache.logging.log4j.Logger;
+
 import pcControl.PcControlMain;
 import pcControl.data.References;
 import pcControl.execution.GeneralStuff;
 import pcControl.logging.GeneralLogger;
 
 public class ArSocketActivityKeeper implements Runnable {
+	private static Logger log = References.log4j;
+	
 	private Socket socket;
 	private BufferedReader in;
 	private PrintWriter out;
@@ -32,7 +36,7 @@ public class ArSocketActivityKeeper implements Runnable {
 		while(!stop && References.ArSocket!=null && !References.ArSocket.isClosed()) {
 			if(Calendar.getInstance().getTimeInMillis() - References.lastArInSocketActivity > 35000) {
 				PcControlMain.getInstance().ArSender.sendMessage("$heartbeat.timeout");
-				GeneralLogger.log("Time out");
+				log.info("Time out");
 				try {
 					Thread.currentThread().sleep(500);
 				} catch (InterruptedException e) {

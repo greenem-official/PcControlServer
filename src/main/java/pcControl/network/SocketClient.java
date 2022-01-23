@@ -6,10 +6,15 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.nio.charset.Charset;
+
+import org.apache.logging.log4j.Logger;
+
 import pcControl.data.References;
 import pcControl.logging.GeneralLogger;
 
 public class SocketClient {
+	private static Logger log = References.log4j;
+	
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
@@ -22,7 +27,7 @@ public class SocketClient {
         } catch (IOException e) {
 			e.printStackTrace();
 		}
-        GeneralLogger.log(socket);
+        log.info(socket);
         if(socket!=null) {
 			try {
 				out = new PrintWriter(socket.getOutputStream(), true);
@@ -38,6 +43,7 @@ public class SocketClient {
 //				this.port = port;
 			}
         }
+        References.sender = this;
     }
     
     public void startConnection(BufferedReader in, PrintWriter out) { //DEPRECATED
@@ -48,12 +54,12 @@ public class SocketClient {
     public void sendMessage(String msg) {
     	msg = new String(msg.getBytes(Charset.forName("Cp1251")));
     	//System.out.println(msg);
-    	//GeneralLogger.log(out.toString() + " | " + in.toString());
+    	//log.info(out.toString() + " | " + in.toString());
     	if(out==null) {
-    		GeneralLogger.log("null socket");
+    		log.info("null socket");
     	}
     	if(out==null) {
-    		GeneralLogger.log("The app is not online!");
+    		log.info("The app is not online!");
     		return;
     	}
     	out.println(msg);
@@ -71,7 +77,7 @@ public class SocketClient {
     		msg = msg.replaceAll("\n\n", "\n");
     	}
     	if(toLog) {
-    		GeneralLogger.log("RSC sending: " + msg);
+    		log.info("RSC sending: " + msg);
     	}
 //      String resp = "";
 //		try {

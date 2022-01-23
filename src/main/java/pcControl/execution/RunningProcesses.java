@@ -7,10 +7,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.concurrent.atomic.AtomicReference;
 
+import org.apache.logging.log4j.Logger;
+
 import pcControl.data.References;
 import pcControl.network.SocketClient;
 
 public class RunningProcesses {
+	private static Logger log = References.log4j;
+	
 	public static SocketClient sender; //create one in references later
 	public static Thread currentThread;
 	
@@ -18,7 +22,16 @@ public class RunningProcesses {
 		RunningProcesses.sender = sender;
 		File f = new File(References.arLocation, file);
 		if(f.exists()) {
-			startProcess(References.arLocation, file);
+			try {
+				if(Permissions.hasFolderAccess(f.getCanonicalPath(), References.foldersAndFilesAllowedToExecute)) {
+					startProcess(References.arLocation, file);
+				}
+				else {
+					sender.sendMessage("$servermessage.text=You don't have permission to execute that file!");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			sender.sendMessage("$system.files.executefile.result.notfound");
@@ -71,7 +84,7 @@ public class RunningProcesses {
 		p.flush();
 	}
 	
-	public static void stopProcess() {
+	public static void stopProcess() throws ClassNotFoundException { // NoClassDefFoundError: pcControl/execution/RunningProcesses    cleanDisconnectedUserChanges
 		References.subProcessNeedToBeOnline = false;
 		if(currentThread!=null) {
 			currentThread.interrupt();

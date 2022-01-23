@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.apache.logging.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 import pcControl.PcControlMain;
@@ -19,6 +21,8 @@ import pcControl.data.References;
 import pcControl.logging.GeneralLogger;
 
 public class Permissions {
+	private static Logger log = References.log4j;
+	
 	public static File configsDir = null;
 	
 	/***
@@ -31,6 +35,9 @@ public class Permissions {
 	}
 	
 	public static void reloadConfig() {
+		//References.foldersAllowedToSee = null;
+		//References.foldersAndFilesAllowedToExecute = null;
+		//References.foldersAndFilesAllowedToOnlyExecute = new ArrayList<String>();
 		//System.out.println(configsDir);
 		File f = new File(configsDir, "mainconfig.yml");
 		f.getParentFile().mkdirs();
@@ -52,12 +59,35 @@ public class Permissions {
 		            if(entry.getKey().equals(currentKey)) {
 		            	//System.out.println(entry.getValue());
 		            	References.foldersAllowedToSee = (ArrayList<String>) entry.getValue();
+		            	if(References.foldersAllowedToSee.contains(true) || References.foldersAllowedToSee.contains(false)) {
+		            		log.error("DON'T USE \"no\" or \"yes\" instead of path in config please!!! (folders-allowed-to-see)");
+		            		PcControlMain.doExit();
+		            	}
+		            	for (String a : References.foldersAllowedToSee) {
+			            	a = a.replace("\\", "//");
+			        		if(!a.contains("/")) {
+			        			a += "/";
+			        		}
+		            	}
 		            }
 		            currentKey = "folders-and-files-allowed-to-use-execution";
 		            if(entry.getKey().equals(currentKey)) {
 		            	//System.out.println(entry.getValue());
 		            	References.foldersAndFilesAllowedToExecute = (ArrayList<String>) entry.getValue();
+		            	if(References.foldersAndFilesAllowedToExecute.contains(true) || References.foldersAndFilesAllowedToExecute.contains(false)) {
+		            		log.error("DON'T USE \"no\" or \"yes\" instead of path in config please!!! (folders-and-files-allowed-to-use-execution)");
+		            		PcControlMain.doExit();
+		            	}
+		            	for (String a : References.foldersAndFilesAllowedToExecute) {
+			            	a = a.replace("\\", "//");
+			        		if(!a.contains("/")) {
+			        			a += "/";
+			        		}
+		            	}
 		            }
+	            }
+	            for (String a : References.foldersAndFilesAllowedToExecute) {
+	            	References.foldersAllowedToSee.add(a);
 	            }
             }
         }
@@ -74,9 +104,9 @@ public class Permissions {
 		} catch (IOException e3) {
 			e3.printStackTrace();
 		}*/
-		//GeneralLogger.log(same);
+		//log.info(same);
 		//if(!same) {
-		//GeneralLogger.log(configsDir);
+		//log.info(configsDir);
 			File f = new File(configsDir, "confighelp.txt");
 			f.getParentFile().mkdirs();
 			//if (!f.exists()) {
@@ -153,8 +183,8 @@ public class Permissions {
 		            }
 				}
 				if(otherversion) {
-					GeneralLogger.log("Old config version: " + parts[0] + "-" + parts[1]);
-					GeneralLogger.log("New config version: " + References.mainVersion + "-" + References.patchVerion);
+					log.info("Old config version: " + parts[0] + "-" + parts[1]);
+					log.info("New config version: " + References.mainVersion + "-" + References.patchVerion);
 					doCopyOfTheConfig(f);
 				}
 			}
@@ -235,8 +265,69 @@ public class Permissions {
 	    }
 	}
 	
-	public static boolean hasFolderAccess(File f) {
+	public static boolean hasFolderAccess(String requested, ArrayList<String> allowedList) {
+		requested = requested.replace("\\", "//");
+		//String[] parts = requested.split("/");
+		if(!requested.contains("/")) {
+			requested += "/";
+		}
+		File fRequested = new File(requested);
+		System.out.println("requested: " + requested);
 		
-		return false;
+		if(!fRequested.exists()) {
+			return false;
+		}
+		
+		try {
+			requested = fRequested.getCanonicalPath();
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		}
+		System.out.println(requested);
+		
+		boolean allowed = false;
+		try {
+			for (String a : allowedList) {
+				a = a.replace("\\", "//");
+        		//String[] parts = requested.split("/");
+        		if(!a.contains("/")) {
+        			a += "/";
+        		}
+				a = a.trim();
+				if(a.equalsIgnoreCase("all")) {
+					allowed = true;
+					break;
+				}
+				else {
+					boolean notToinclude = false;
+					if(a.startsWith("!")) {
+						notToinclude = true;
+						a = a.substring(1);
+					}
+					File f = new File(a);
+					if(f.exists()) {
+						try {
+							if(f.getCanonicalPath().equalsIgnoreCase(requested) || requested.toLowerCase().startsWith(f.getCanonicalPath().toLowerCase())) {
+								if(notToinclude) {
+									allowed = false;
+									break;
+								}
+								else {
+									allowed = true;
+								}
+							}
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+		catch (ClassCastException e) {
+			log.error("SOMETHING WRONG IN CONFIG");
+			References.sender.sendMessage("Error in config");
+		}
+		System.out.println("result:" + allowed);
+		return allowed;
 	}
 }

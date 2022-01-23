@@ -45,12 +45,13 @@ public class Test3 {
 //			System.out.println("$system.files.changelocation.result.denied.old=" + References.arLocation);	
 //		}
 		
-//		String s = "G:";
-//		String[] parts = s.split("\\\\");
-//		System.out.println(parts.length);
-		File f = new File("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\logs");
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("DD-MM-YYYY");  
-		LocalDateTime now = LocalDateTime.now();  
-		f.renameTo(new File("before_" + dtf.format(now) + ".log"));
+		String s = "C:\\";
+		s = s.replace("\\","//");
+		String[] parts = s.split("/");
+		System.out.println(parts.length);
+//		File f = new File("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\logs");
+//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("DD-MM-YYYY");  
+//		LocalDateTime now = LocalDateTime.now();  
+//		f.renameTo(new File("before_" + dtf.format(now) + ".log"));
 	}
 }

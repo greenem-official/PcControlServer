@@ -21,6 +21,7 @@ Example of actual usage:
          - G:\FirstFolder
          - G:\SecondFolder\
          - G:\ThirdFolder\app.exe
+         - G:\ThirdFolder\!dangerous.exe ( <- will not be included)
 
 Available settings:
 
@@ -29,3 +30,6 @@ Available settings:
    
    folders-and-files-allowed-to-use-execution:
    # What folders client will be able to execute files in and single file directories. Default: some random thing after "- "
+   
+ATTENTION!
+Don't put "yes", "no", "true", "false" instead of path! It will break the code

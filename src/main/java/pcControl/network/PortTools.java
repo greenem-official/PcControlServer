@@ -6,7 +6,13 @@ import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.apache.logging.log4j.Logger;
+
+import pcControl.data.References;
+
 public class PortTools {
+	private static Logger log = References.log4j;
+	
 	Properties props = new Properties();
 	private static volatile PortTools INSTANCE;
 	private ArrayList<Integer> usedPorts = new ArrayList<>();

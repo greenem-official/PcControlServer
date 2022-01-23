@@ -23,7 +23,8 @@ import pcControl.network.PortTools;
 import pcControl.network.SocketClient;
 
 public class PcControlMain {
-
+	private static Logger log = null;
+	
 	// serves-playersCount-settings
 
 	public static ProcessBuilder procBuilder = null;
@@ -51,9 +52,10 @@ public class PcControlMain {
 		doLoggerFileStuff();
 		
 		References.log4j = LogManager.getLogger();
+		log = References.log4j;
 
-		GeneralLogger.log("REMOTE PC CONTROL APP - SERVER SIDE");
-		GeneralLogger.log("Starting input thread");
+		log.info("REMOTE PC CONTROL APP - SERVER SIDE");
+		log.info("Starting input thread");
 		Thread inputThread = new Thread(new InputRunnable());
 
 		inputThread.start();
@@ -91,7 +93,7 @@ public class PcControlMain {
 
 		// getInstance().test2();
 
-		//GeneralLogger.log(References.appExecutionDir);
+		//log.info(References.appExecutionDir);
 		
 		GeneralStuff.setConstants();
 		Permissions.init();
@@ -99,7 +101,7 @@ public class PcControlMain {
 		
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
-				// GeneralLogger.log("Running Shutdown Hook");
+				// log.info("Running Shutdown Hook");
 				InputRunnable.onExit();
 				try {
 					References.ArSocket.close();
@@ -109,7 +111,7 @@ public class PcControlMain {
 				} catch (NullPointerException e) {
 					// e.printStackTrace();
 				}
-				GeneralLogger.log("Succesfully stopped");
+				log.info("Succesfully stopped");
 			}
 		});
 	}
@@ -143,38 +145,38 @@ public class PcControlMain {
 		s = s.trim();
 		String unknownCommand = "Unknown command or wrong args!";
 		String[] separated = s.split(" ");
-		// GeneralLogger.log(separated.length);
+		// log.info(separated.length);
 		if (separated.length == 0) {
-			GeneralLogger.log("An empty command"); // test
+			log.info("An empty command"); // test
 		}
 		if (separated.length == 1) {
 			if (s.equalsIgnoreCase("help")) {
-				GeneralLogger.log(getHelpText());
+				log.info(getHelpText());
 			} else if (s.equalsIgnoreCase("exit")) {
 				References.STOPPING = true;
 				doExit();
 			} else if (s.equals("test1")) {
 				try {
-					GeneralLogger.log("1: " + References.ArSocket);
-					GeneralLogger.log("2: " + References.ArSocket.getKeepAlive());
-					GeneralLogger.log("3: " + References.ArSocket.getOOBInline());
-					GeneralLogger.log("4: " + References.ArSocket.getReceiveBufferSize());
-					GeneralLogger.log("5: " + References.ArSocket.getReuseAddress());
-					GeneralLogger.log("6: " + References.ArSocket.getSendBufferSize());
-					GeneralLogger.log("7: " + References.ArSocket.getSoLinger());
-					GeneralLogger.log("8: " + References.ArSocket.getSoTimeout());
-					GeneralLogger.log("9: " + References.ArSocket.getTcpNoDelay());
-					GeneralLogger.log("10: " + References.ArSocket.getTrafficClass());
-					GeneralLogger.log("11: " + References.ArSocket.isBound());
-					GeneralLogger.log("12: " + References.ArSocket.isClosed());
-					GeneralLogger.log("13: " + References.ArSocket.isConnected());
-					GeneralLogger.log("14: " + References.ArSocket.isInputShutdown());
-					GeneralLogger.log("15: " + References.ArSocket.isOutputShutdown());
+					log.info("1: " + References.ArSocket);
+					log.info("2: " + References.ArSocket.getKeepAlive());
+					log.info("3: " + References.ArSocket.getOOBInline());
+					log.info("4: " + References.ArSocket.getReceiveBufferSize());
+					log.info("5: " + References.ArSocket.getReuseAddress());
+					log.info("6: " + References.ArSocket.getSendBufferSize());
+					log.info("7: " + References.ArSocket.getSoLinger());
+					log.info("8: " + References.ArSocket.getSoTimeout());
+					log.info("9: " + References.ArSocket.getTcpNoDelay());
+					log.info("10: " + References.ArSocket.getTrafficClass());
+					log.info("11: " + References.ArSocket.isBound());
+					log.info("12: " + References.ArSocket.isClosed());
+					log.info("13: " + References.ArSocket.isConnected());
+					log.info("14: " + References.ArSocket.isInputShutdown());
+					log.info("15: " + References.ArSocket.isOutputShutdown());
 				} catch (SocketException e) {
 					e.printStackTrace();
 				}
 			} else {
-				GeneralLogger.log("Unknown command!");
+				log.info("Unknown command!");
 			}
 		} else {
 			String cmd = separated[0];
@@ -201,7 +203,7 @@ public class PcControlMain {
 					p.close();
 				}
 			} else {
-				GeneralLogger.log(unknownCommand);
+				log.info(unknownCommand);
 			}
 		}
 	}

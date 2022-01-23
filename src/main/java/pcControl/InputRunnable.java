@@ -3,16 +3,20 @@ package pcControl;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.Logger;
+
+import pcControl.data.References;
 import pcControl.logging.GeneralLogger;
 
 public class InputRunnable implements Runnable {
+	private static Logger log = References.log4j;
 
 	private static Scanner inputScanner;
 	private static boolean stopped = false;
 	
 	@Override
 	public void run() {
-		//GeneralLogger.log("InputRunnable started!");
+		//log.info("InputRunnable started!");
 		String input = "";
 		inputScanner = new Scanner(System.in);
 		
@@ -42,18 +46,18 @@ public class InputRunnable implements Runnable {
 			input = inputScanner.nextLine();
 			}
 			catch(NoSuchElementException e) {
-				//GeneralLogger.log("Input Thread: No Such Element Exception"); // too scary lol
-				GeneralLogger.log("Closing input");
+				//log.info("Input Thread: No Such Element Exception"); // too scary lol
+				log.info("Closing input");
 				stopped = true;
 			}
-			//GeneralLogger.log("You typed " + input);
+			//log.info("You typed " + input);
 			PcControlMain.getInstance().onConsoleCommand(input);
-//			GeneralLogger.log("input");
+//			log.info("input");
 		}
 	}
 	
 	public static void onExit() {
-		GeneralLogger.log("Closing input");
+		log.info("Closing input");
 		inputScanner.close();
 	}
 }
