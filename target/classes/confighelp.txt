@@ -21,7 +21,16 @@ Example of actual usage:
          - G:\FirstFolder
          - G:\SecondFolder\
          - G:\ThirdFolder\app.exe
-         - G:\ThirdFolder\!dangerous.exe ( <- will not be included)
+         - !G:\ThirdFolder\dangerous.exe ( <- will not be included)
+         
+In addition:
+If you do something like this:
+
+    folders-allowed-to-see:
+      - "C:"
+      - "G:/Unity"
+      
+You will not be able to go to G:\, but will be able go to "G:/Unity" if you request it's full path. So, usually you should also allow the higher folder(s) (or the disk)
 
 Available settings:
 
@@ -31,5 +40,7 @@ Available settings:
    folders-and-files-allowed-to-use-execution:
    # What folders client will be able to execute files in and single file directories. Default: some random thing after "- "
    
-ATTENTION!
-Don't put "yes", "no", "true", "false" instead of path! It will break the code
+Attention!
+Yaml has problems with \ symbol, but the app will try to replace it with / when loading the config, so that's why it happens
+Also, if you put "yes", "no", "true", "false" without "" symbols somewhere instead of path, you will most likely break the code
+Tabulation (placing text to the right more every time when entering a new section) is required in yaml files.

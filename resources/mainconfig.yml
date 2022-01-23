@@ -2,12 +2,12 @@
 
 settings:
    
-   # What folders client will be able to see in the list and enter. Default: *
+   # What folders client will be able to see in the list and enter. Default: "all".
    folders-allowed-to-see:
-      - all
+      - "all"
    
    # What folders client will be able to execute files in and single file derictories.
    folders-and-files-allowed-to-use-execution:
-      - FoldersOrFilesHere
+      - 
 
-config-version: 1.0.0-2
+config-version: 1.0.0-3

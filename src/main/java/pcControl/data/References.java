@@ -13,7 +13,7 @@ import pcControl.network.SocketClient;
 
 public class References {
 	public static String mainVersion = "1.0.0";
-	public static String patchVerion = "2";
+	public static String patchVerion = "3";
 	
 //	private int socketPort = 60000;
 	
@@ -48,11 +48,12 @@ public class References {
 	public static boolean printFileDataSendingList = false;
 	public static boolean printFileDataSendingSilent = false;
 	public static boolean fixEmptyLines = true;
-	public static boolean updateConfigOnNewVersion = true; // false
+	public static boolean updateConfigOnNewVersion = false; // false
 	
-	public static Process currentRunningSubProcess = null;
+	public volatile static Process currentRunningSubProcess = null;
 	public static BufferedReader currentRunningSubProcessBufferedReader = null;
 	public static File appExecutionDir = null;
+	public static File configsDir = null;
 	
 	public static ArrayList<String> foldersAllowedToSee = null;
 	public static ArrayList<String> foldersAndFilesAllowedToExecute = null;

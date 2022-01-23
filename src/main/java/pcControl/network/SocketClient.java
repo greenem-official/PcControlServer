@@ -27,7 +27,7 @@ public class SocketClient {
         } catch (IOException e) {
 			e.printStackTrace();
 		}
-        log.info(socket);
+        //log.info(socket);
         if(socket!=null) {
 			try {
 				out = new PrintWriter(socket.getOutputStream(), true);
@@ -49,6 +49,7 @@ public class SocketClient {
     public void startConnection(BufferedReader in, PrintWriter out) { //DEPRECATED
         this.in = in;
         this.out = out;
+        References.sender = this;
     }
 
     public void sendMessage(String msg) {

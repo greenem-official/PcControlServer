@@ -267,16 +267,15 @@ public class AndroidListener implements Runnable {
 														//System.out.println("Requested path: " + inputLine.substring(41));
 														if(args[3].equals("request")) {
 															if(len>4) {
+																boolean success = false;
 																if(args[4].startsWith("new=")) {
 																	String text = inputLine.substring(41);
 																	log.info("Requested path: " + text);
 																	File f = new File(text);
-																																		
-																	boolean success = false;
 																	
 																	if(f.exists()) {
 																		if(Permissions.hasFolderAccess(f.getCanonicalPath(), References.foldersAllowedToSee)) {
-																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + text);
+																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
 																			References.arLocation = f;
 																			success = true;
 																		}
@@ -296,23 +295,26 @@ public class AndroidListener implements Runnable {
 																			success = true;
 																		}
 																	}
-																	if(!success) {
-																		sender.sendMessage("$system.files.changelocation.result.denied.old=" + References.arLocation);
-																	}
 																}
 																if(args[4].equalsIgnoreCase("up")) {
 																	File newFile = References.arLocation.getParentFile();
 																	if(newFile!=null) {
-																		sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
-																		References.arLocation = newFile;
-																		sendFilesList(sender, true);
-																		sendFoldersList(sender, true);
-																		sendNonFoldersList(sender, true);
-																		log.info("Did \"cd ..\"");
+																		if(Permissions.hasFolderAccess(newFile.getCanonicalPath(), References.foldersAllowedToSee)) {
+																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
+																			References.arLocation = newFile;
+																			sendFilesList(sender, true);
+																			sendFoldersList(sender, true);
+																			sendNonFoldersList(sender, true);
+																			log.info("Did \"cd ..\"");
+																		}
 																	}
 																	else {
 																		sender.sendMessage("$servermessage.text=You can't use this in the main directory!");
 																	}
+																}
+																
+																if(!success) {
+																	sender.sendMessage("$system.files.changelocation.result.denied.old=" + References.arLocation.getCanonicalPath());
 																}
 															}
 														}

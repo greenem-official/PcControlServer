@@ -15,11 +15,11 @@ import pcControl.network.SocketClient;
 public class RunningProcesses {
 	private static Logger log = References.log4j;
 	
-	public static SocketClient sender; //create one in references later
-	public static Thread currentThread;
+	//public static SocketClient sender; //create one in references later
+	public static Thread LcurrentThread;
 	
 	public static void checkExetutionPerms(SocketClient sender, String file) {
-		RunningProcesses.sender = sender;
+		//References.sender = sender;
 		File f = new File(References.arLocation, file);
 		if(f.exists()) {
 			try {
@@ -50,12 +50,12 @@ public class RunningProcesses {
 		References.currentRunningSubProcess = ps.get();
 		References.currentRunningSubProcessBufferedReader = new BufferedReader(new InputStreamReader(References.currentRunningSubProcess.getInputStream()));
 		
-		sender.sendMessage("$system.files.executefile.result.success");
+		References.sender.sendMessage("$system.files.executefile.result.success");
 		
 		References.subProcessNeedToBeOnline = true;
 		
-		currentThread = new Thread(startListeningRunnable);
-		currentThread.start();
+		LcurrentThread = new Thread(startListeningRunnable);
+		LcurrentThread.start();
 	}
 	
 	private static Runnable startListeningRunnable = new Runnable() {
@@ -67,14 +67,14 @@ public class RunningProcesses {
 				try {
 					line = References.currentRunningSubProcessBufferedReader.readLine();
 					if(line!=null) {
-						sender.sendMessage("$system.execution.output="+line);
+						References.sender.sendMessage("$system.execution.output="+line);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			//sender.sendMessage("$rscmessage.Process has stopped by itself");
-			sender.sendMessage("$system.execution.stopped.justend");
+			References.sender.sendMessage("$system.execution.stopped.justend");
 		}
 	};
 	
@@ -85,10 +85,17 @@ public class RunningProcesses {
 	}
 	
 	public static void stopProcess() throws ClassNotFoundException { // NoClassDefFoundError: pcControl/execution/RunningProcesses    cleanDisconnectedUserChanges
-		References.subProcessNeedToBeOnline = false;
-		if(currentThread!=null) {
-			currentThread.interrupt();
-			killProcessCompletely(References.currentRunningSubProcess.toHandle());
+		try {
+			References.subProcessNeedToBeOnline = false;
+			if(LcurrentThread!=null) {
+				System.out.println(References.currentRunningSubProcess.getClass().getName());
+				LcurrentThread.interrupt();
+				killProcessCompletely(((java.lang.Process)References.currentRunningSubProcess).toHandle());
+				References.sender.sendMessage("$servermessage.text=Stopped the process.");
+			}
+		}
+		catch(NoSuchMethodError e) {
+			log.debug("NoSuchMethodError", e);
 		}
 	}
 	

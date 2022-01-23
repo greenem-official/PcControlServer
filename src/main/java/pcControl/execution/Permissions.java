@@ -23,15 +23,15 @@ import pcControl.logging.GeneralLogger;
 public class Permissions {
 	private static Logger log = References.log4j;
 	
-	public static File configsDir = null;
+	//public static File configsDir = null;
 	
 	/***
 	ONLY AFTER GeneralStuff.setConstants(), here copyHelpFile and copyMainConfigYamlFile
 	***/
 	
 	public static void init() {
-		configsDir = new File(References.appExecutionDir, "configs");
-		configsDir.mkdirs();
+		References.configsDir = new File(References.appExecutionDir, "configs");
+		References.configsDir.mkdirs();
 	}
 	
 	public static void reloadConfig() {
@@ -39,7 +39,7 @@ public class Permissions {
 		//References.foldersAndFilesAllowedToExecute = null;
 		//References.foldersAndFilesAllowedToOnlyExecute = new ArrayList<String>();
 		//System.out.println(configsDir);
-		File f = new File(configsDir, "mainconfig.yml");
+		File f = new File(References.configsDir, "mainconfig.yml");
 		f.getParentFile().mkdirs();
 		
 		Yaml yaml = new Yaml();
@@ -54,41 +54,73 @@ public class Permissions {
             //System.out.println(mainEntry.toString());
             if(mainEntry.getKey().equals("settings")) {
             	LinkedHashMap<String, Object> settings = (LinkedHashMap<String, Object>) mainEntry.getValue();
+            	boolean resetAllowedToSee = false;
+            	boolean resetAllowedToExec = false;
 	            for (Map.Entry<String, Object> entry : ((HashMap<String, Object>) settings).entrySet()) {
 		            currentKey = "folders-allowed-to-see";
 		            if(entry.getKey().equals(currentKey)) {
 		            	//System.out.println(entry.getValue());
 		            	References.foldersAllowedToSee = (ArrayList<String>) entry.getValue();
 		            	if(References.foldersAllowedToSee.contains(true) || References.foldersAllowedToSee.contains(false)) {
-		            		log.error("DON'T USE \"no\" or \"yes\" instead of path in config please!!! (folders-allowed-to-see)");
+		            		log.error("DON'T USE \"no\" or \"yes\" without \"\" instead of path in config please!!! (folders-allowed-to-see)");
 		            		PcControlMain.doExit();
 		            	}
-		            	for (String a : References.foldersAllowedToSee) {
-			            	a = a.replace("\\", "//");
-			        		if(!a.contains("/")) {
-			        			a += "/";
-			        		}
+		            	
+		            	for (int i = 0; i < References.foldersAllowedToSee.size(); i++) {
+		            		String a = References.foldersAllowedToSee.get(i);
+		            		if(a!=null) {
+				            	a = a.replace("\\", "//");
+				        		if(!a.contains("/")) {
+				        			a += "/";
+				        		}
+		            		}
+		            		else {
+		            			if(References.foldersAllowedToSee.size()>1) {
+		            				log.debug("NULL IN CONFIG LIST, BUT NOT ONLY NULL THERE (foldersAllowedToSee)");
+		            			}
+		            			resetAllowedToSee = true;
+		            		}
 		            	}
+		            	//log.debug(References.foldersAllowedToSee);
 		            }
 		            currentKey = "folders-and-files-allowed-to-use-execution";
 		            if(entry.getKey().equals(currentKey)) {
 		            	//System.out.println(entry.getValue());
 		            	References.foldersAndFilesAllowedToExecute = (ArrayList<String>) entry.getValue();
 		            	if(References.foldersAndFilesAllowedToExecute.contains(true) || References.foldersAndFilesAllowedToExecute.contains(false)) {
-		            		log.error("DON'T USE \"no\" or \"yes\" instead of path in config please!!! (folders-and-files-allowed-to-use-execution)");
+		            		log.error("DON'T USE \"no\" or \"yes\" without \"\" instead of path in config please!!! (folders-and-files-allowed-to-use-execution)");
 		            		PcControlMain.doExit();
 		            	}
-		            	for (String a : References.foldersAndFilesAllowedToExecute) {
-			            	a = a.replace("\\", "//");
-			        		if(!a.contains("/")) {
-			        			a += "/";
-			        		}
-		            	}
+		            	for (int i = 0; i < References.foldersAndFilesAllowedToExecute.size(); i++) {
+		            		String a = References.foldersAndFilesAllowedToExecute.get(i);
+		            		if(a!=null) {
+				            	a = a.replace("\\", "//");
+				        		if(!a.contains("/")) {
+				        			a += "/";
+					        	}
+			            	}
+		            		else {
+		            			//log.debug(References.foldersAndFilesAllowedToExecute);
+		            			if(References.foldersAndFilesAllowedToExecute.size()>1) {
+		            				log.debug("NULL IN CONFIG LIST, BUT NOT ONLY NULL THERE (foldersAndFilesAllowedToExecute)");
+		            			}
+		            			resetAllowedToExec = true;
+		            		}
+			            }
+		            	//log.debug(References.foldersAndFilesAllowedToExecute);
 		            }
+		        }
+	            //System.out.println(resetAllowedToSee + " " + resetAllowedToExec);
+	            if(resetAllowedToSee) {
+	            	References.foldersAllowedToSee.clear();
+	            }
+	            if(resetAllowedToExec) {
+	            	References.foldersAndFilesAllowedToExecute.clear();
 	            }
 	            for (String a : References.foldersAndFilesAllowedToExecute) {
 	            	References.foldersAllowedToSee.add(a);
 	            }
+	            //System.out.println(References.foldersAllowedToSee);
             }
         }
 	}
@@ -107,7 +139,7 @@ public class Permissions {
 		//log.info(same);
 		//if(!same) {
 		//log.info(configsDir);
-			File f = new File(configsDir, "confighelp.txt");
+			File f = new File(References.configsDir, "confighelp.txt");
 			f.getParentFile().mkdirs();
 			//if (!f.exists()) {
 				InputStream is = null;
@@ -156,7 +188,7 @@ public class Permissions {
 			e3.printStackTrace();
 		}*/
 		//if(!same) {
-		File f = new File(configsDir, "mainconfig.yml");
+		File f = new File(References.configsDir, "mainconfig.yml");
 		f.getParentFile().mkdirs();
 		if (!f.exists()) {
 			doCopyOfTheConfig(f);
@@ -266,13 +298,15 @@ public class Permissions {
 	}
 	
 	public static boolean hasFolderAccess(String requested, ArrayList<String> allowedList) {
+		String debug = "";
+		
 		requested = requested.replace("\\", "//");
 		//String[] parts = requested.split("/");
 		if(!requested.contains("/")) {
 			requested += "/";
 		}
 		File fRequested = new File(requested);
-		System.out.println("requested: " + requested);
+		//System.out.println("requested: " + requested);
 		
 		if(!fRequested.exists()) {
 			return false;
@@ -283,11 +317,15 @@ public class Permissions {
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
-		System.out.println(requested);
+		//System.out.println(requested);
 		
 		boolean allowed = false;
 		try {
 			for (String a : allowedList) {
+				if(a==null) {
+					//System.out.println(allowedList);
+					continue;
+				}
 				a = a.replace("\\", "//");
         		//String[] parts = requested.split("/");
         		if(!a.contains("/")) {
@@ -303,6 +341,7 @@ public class Permissions {
 					if(a.startsWith("!")) {
 						notToinclude = true;
 						a = a.substring(1);
+						debug += "Not to inclide " + a + ", req path = " + requested + ", ";
 					}
 					File f = new File(a);
 					if(f.exists()) {
@@ -327,7 +366,8 @@ public class Permissions {
 			log.error("SOMETHING WRONG IN CONFIG");
 			References.sender.sendMessage("Error in config");
 		}
-		System.out.println("result:" + allowed);
+		debug += "Result = " + allowed;
+		//log.debug(debug);
 		return allowed;
 	}
 }

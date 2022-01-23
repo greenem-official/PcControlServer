@@ -97,6 +97,7 @@ public class PcControlMain {
 		
 		GeneralStuff.setConstants();
 		Permissions.init();
+		//GeneralStuff.replaceAllBackslashesInConfig();
 		GeneralStuff.reloadFiles();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -192,6 +193,7 @@ public class PcControlMain {
 				if(separated.length>1) {
 					if(separated[1].equals("config")) {	
 						GeneralStuff.reloadFiles();
+						log.info("Successfully reloaded the config");
 					}
 				}
 			} else if (cmd.equals("some-string-for-replacement-of-already-used")) {
