@@ -307,6 +307,7 @@ public class Permissions {
 		
 		requested = requested.replace("\\", "//");
 		//String[] parts = requested.split("/");
+		//System.out.println("requested: " + requested);
 		if(!requested.contains("/")) {
 			requested += "/";
 		}
@@ -328,6 +329,8 @@ public class Permissions {
 		}
 		//System.out.println(requested);
 		
+		debug += "req path = " + requested + "; ";
+		
 		boolean allowed = false;
 		try {
 			for (String a : allowedList) {
@@ -337,20 +340,21 @@ public class Permissions {
 				}
 				a = a.replace("\\", "//");
         		//String[] parts = requested.split("/");
-        		if(!a.contains("/")) {
+        		if(!a.contains("/") && !a.equalsIgnoreCase("all")) {
         			a += "/";
         		}
 				a = a.trim();
+				//System.out.println("all = " + a + ": " + a.equalsIgnoreCase("all"));
 				if(a.equalsIgnoreCase("all")) {
 					allowed = true;
 					break;
 				}
 				else {
 					boolean notToinclude = false;
+					debug += "Rule: " + a + ",";
 					if(a.startsWith("!")) {
 						notToinclude = true;
 						a = a.substring(1);
-						debug += "Not to inclide " + a + ", req path = " + requested + ", ";
 					}
 					File f = new File(a);
 					if(f.exists()) {
