@@ -35,7 +35,7 @@ public class ArSocketActivityKeeper implements Runnable {
 	public void run() {
 		while(!stop && References.ArSocket!=null && !References.ArSocket.isClosed()) {
 			if(Calendar.getInstance().getTimeInMillis() - References.lastArInSocketActivity > 35000) {
-				PcControlMain.getInstance().ArSender.sendMessage("$heartbeat.timeout");
+				References.sender.sendMessage("$heartbeat.timeout");
 				log.info("Time out");
 				try {
 					Thread.currentThread().sleep(500);

@@ -32,7 +32,7 @@ public class PcControlMain {
 	public InputStream inp = null;
 	public OutputStream output = null;
 	public boolean logging = true;
-	public SocketClient ArSender;
+	//public SocketClient ArSender;
 
 	private static volatile PcControlMain INSTANCE;
 
@@ -88,7 +88,7 @@ public class PcControlMain {
 //		socketClient.sendMessage("message 1");
 
 		// SocketClient androidSocketClient = new SocketClient();
-		getInstance().ArSender = new SocketClient();
+		References.sender = new SocketClient();
 //		androidSocketClient.startConnection("localhost", References.ArSocketPort);
 
 		// getInstance().test2();
@@ -188,7 +188,7 @@ public class PcControlMain {
 			if (cmd.equals("menu")) {
 
 			} else if (cmd.equals("send")) {
-				PcControlMain.getInstance().ArSender.sendMessage("$rscmessage." + s.substring(5));
+				References.sender.sendMessage("$rscmessage." + s.substring(5));
 			} else if (cmd.equals("reload")) {
 				if(separated.length>1) {
 					if(separated[1].equals("config")) {	

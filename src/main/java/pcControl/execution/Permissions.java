@@ -32,6 +32,11 @@ public class Permissions {
 	public static void init() {
 		References.configsDir = new File(References.appExecutionDir, "configs");
 		References.configsDir.mkdirs();
+		try {
+			log.info("Config directory: " + References.configsDir.getCanonicalPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void reloadConfig() {

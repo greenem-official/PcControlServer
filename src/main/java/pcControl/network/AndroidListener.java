@@ -67,7 +67,7 @@ public class AndroidListener implements Runnable {
 				References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
 				References.arLocation = new File("C:\\"); //config
 				References.currentSocketVerified = false;
-				SocketClient sender = PcControlMain.getInstance().ArSender;
+				//SocketClient sender = PcControlMain.getInstance().ArSender;
 				ArSocketActivityKeeper keeper = new ArSocketActivityKeeper();
 				keeper.init();
 				Thread threadActivityKeeper = new Thread(keeper);
@@ -78,7 +78,7 @@ public class AndroidListener implements Runnable {
 				References.ArInSocket = new BufferedReader(new InputStreamReader(References.ArSocket.getInputStream()));
 				
 	//			Main.getInstance().ArSender.startConnection("128.72.175.213", 12345);
-				PcControlMain.getInstance().ArSender.startConnection(References.ArInSocket, References.ArOutSocket);
+				References.sender.startConnection(References.ArInSocket, References.ArOutSocket);
 				
 				String inputLine = "";
 				int times = 1;
@@ -115,20 +115,19 @@ public class AndroidListener implements Runnable {
 							int len = args.length;
 							//log.info(len);
 							if(len>0) {
-								if(args[0].equals("auth")) {
+								if(args[0].equals("auth")) { // IS THERE A WAY TO AVOID SENDING THIS?
 									if(len>1) {
 										if(args[1].equals("request")) {
 											if(References.currentSocketVerified==false) {
 												if(len>2) {
 													if(args[2].startsWith("password=")) {
-														//	log.info(inputLine.substring(23));
 														if(inputLine.substring(23).equals(References.password)) {
 															References.currentSocketVerified = true;
-															sender.sendMessage("$auth.result.accepted");
+															References.sender.sendMessage("$auth.result.accepted");
 														}
 														else {
 															References.currentSocketVerified = false;
-															sender.sendMessage("$auth.result.denied");
+															References.sender.sendMessage("$auth.result.denied");
 															try {
 																Thread.currentThread().sleep(100);
 															} catch (InterruptedException e) {
@@ -140,7 +139,7 @@ public class AndroidListener implements Runnable {
 												}
 											}
 											else {
-												sender.sendMessage("$auth.alreadyConnected");
+												References.sender.sendMessage("$auth.alreadyConnected");
 											}
 										}
 									}
@@ -154,7 +153,7 @@ public class AndroidListener implements Runnable {
 													if(len>3) {
 														if(args[3].equals("request")) {
 																log.info("Sending the task list");
-																sender.sendMessage("$system.getinfo.tasklist.result.text=" + printTaskList());
+																References.sender.sendMessage("$system.getinfo.tasklist.result.text=" + printTaskList());
 														}
 													}
 												}												
@@ -168,7 +167,7 @@ public class AndroidListener implements Runnable {
 															if(len>4) {
 																if(args[4].equals("request")) {
 																	log.info("Shutting down the pc...");
-																	sender.sendMessage("$system.management.shutdown.usual.accepted");
+																	References.sender.sendMessage("$system.management.shutdown.usual.accepted");
 																	//ProcessBuilder pb = new ProcessBuilder("shutdown /t 0 /s");
 																	//pb.start();
 																	
@@ -211,7 +210,7 @@ public class AndroidListener implements Runnable {
 															if(References.printFileDataSendingMessage) {
 																log.info("Sending path separator = " + separator);
 															}
-															sender.sendMessage("$system.files.getpathseparator.result.pathseparator=" + separator);
+															References.sender.sendMessage("$system.files.getpathseparator.result.pathseparator=" + separator);
 														}
 													}
 												}
@@ -221,7 +220,7 @@ public class AndroidListener implements Runnable {
 															if(References.printFileDataSendingMessage) {
 																log.info("Sending location...");
 															}
-															sender.sendMessage("$system.files.getlocation.result.location=" + References.arLocation.getCanonicalPath());
+															References.sender.sendMessage("$system.files.getlocation.result.location=" + References.arLocation.getCanonicalPath());
 														}
 													}
 												}
@@ -234,7 +233,7 @@ public class AndroidListener implements Runnable {
 																	silent = true;
 																}
 															}
-															sendFilesList(sender, silent);
+															sendFilesList(silent);
 														}
 													}
 												}
@@ -247,7 +246,7 @@ public class AndroidListener implements Runnable {
 																	silent = true;
 																}
 															}
-															sendFoldersList(sender, silent);
+															sendFoldersList(silent);
 														}
 													}
 												}
@@ -260,7 +259,7 @@ public class AndroidListener implements Runnable {
 																	silent = true;
 																}
 															}
-															sendNonFoldersList(sender, silent);
+															sendNonFoldersList(silent);
 														}
 													}
 												}
@@ -280,7 +279,7 @@ public class AndroidListener implements Runnable {
 																	
 																	if(f.exists()) {
 																		if(Permissions.hasFolderAccess(f.getCanonicalPath(), References.foldersAllowedToSee)) {
-																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
+																			References.sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
 																			References.arLocation = f;
 																			success = true;
 																		}
@@ -292,7 +291,7 @@ public class AndroidListener implements Runnable {
 																		File fullF = new File(References.arLocation + text);
 																		if(fullF.exists()) {
 																			try {
-																				sender.sendMessage("$system.files.changelocation.result.accepted.path=" + fullF.getCanonicalPath());
+																				References.sender.sendMessage("$system.files.changelocation.result.accepted.path=" + fullF.getCanonicalPath());
 																				References.arLocation = fullF;
 																			} catch (IOException e) {
 																				e.printStackTrace();
@@ -305,22 +304,22 @@ public class AndroidListener implements Runnable {
 																	File newFile = References.arLocation.getParentFile();
 																	if(newFile!=null) {
 																		if(Permissions.hasFolderAccess(newFile.getCanonicalPath(), References.foldersAllowedToSee)) {
-																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
+																			References.sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
 																			success = true;
 																			References.arLocation = newFile;
-																			sendFilesList(sender, true);
-																			sendFoldersList(sender, true);
-																			sendNonFoldersList(sender, true);
+																			sendFilesList(true);
+																			sendFoldersList(true);
+																			sendNonFoldersList(true);
 																			log.info("Did \"cd ..\"");
 																		}
 																	}
 																	else {
-																		sender.sendMessage("$servermessage.text=You can't use this in the main directory!");
+																		References.sender.sendMessage("$servermessage.text=You can't use this in the main directory!");
 																	}
 																}
 																
 																if(!success) {
-																	sender.sendMessage("$system.files.changelocation.result.denied.old=" + References.arLocation.getCanonicalPath());
+																	References.sender.sendMessage("$system.files.changelocation.result.denied.old=" + References.arLocation.getCanonicalPath());
 																}
 															}
 														}
@@ -333,7 +332,7 @@ public class AndroidListener implements Runnable {
 																if(args[4].startsWith("file=")) {
 																	String file = inputLine.substring(39);
 																	log.info("Request to execute file \"" + file + "\"");
-																	RunningProcesses.checkExetutionPerms(sender, file);
+																	RunningProcesses.checkExetutionPerms(References.sender, file);
 																}
 															}
 														}
@@ -351,7 +350,7 @@ public class AndroidListener implements Runnable {
 													String text = inputLine.substring(24);
 													log.info("A command from Android to RSC: " + text);
 													//if(text.startsWith("SOME_COMMAND")) {}
-													sender.sendMessage("Unknown command!\n");
+													References.sender.sendMessage("Unknown command!\n");
 												}
 											}
 										}
@@ -405,11 +404,11 @@ public class AndroidListener implements Runnable {
 									}
 								}
 								else {
-									sender.sendMessage("$rsccommand.unknown");
+									References.sender.sendMessage("$rsccommand.unknown");
 								}
 							}
 							else {
-								sender.sendMessage("$rcsmessage.error.general");
+								References.sender.sendMessage("$rcsmessage.error.general");
 							}
 						}
 						else {
@@ -503,7 +502,7 @@ public class AndroidListener implements Runnable {
 		return null;
 	}
 	
-	private void sendFilesList(SocketClient sender, boolean silent) {
+	private void sendFilesList(boolean silent) {
 		if((References.printFileDataSendingMessage && !silent) || (References.printFileDataSendingSilent && silent)) {
 			log.info("Sending files list...");
 		}
@@ -519,13 +518,13 @@ public class AndroidListener implements Runnable {
 			}
 		}
 		if (silent) {
-			sender.sendMessage("$system.files.fileslist.silentresult.list=" + text);
+			References.sender.sendMessage("$system.files.fileslist.silentresult.list=" + text);
 		} else {
-			sender.sendMessage("$system.files.fileslist.result.list=" + text);
+			References.sender.sendMessage("$system.files.fileslist.result.list=" + text);
 		}
 	}
 	
-	private void sendFoldersList(SocketClient sender, boolean silent) {
+	private void sendFoldersList(boolean silent) {
 		if((References.printFileDataSendingMessage && !silent) || (References.printFileDataSendingSilent && silent)) {
 			log.info("Sending folders only list...");
 		}
@@ -543,13 +542,13 @@ public class AndroidListener implements Runnable {
 			}
 		}
 		if (silent) {
-			sender.sendMessage("$system.files.folderslist.silentresult.list=" + text);
+			References.sender.sendMessage("$system.files.folderslist.silentresult.list=" + text);
 		} else {
-			sender.sendMessage("$system.files.folderslist.result.list=" + text);
+			References.sender.sendMessage("$system.files.folderslist.result.list=" + text);
 		}
 	}
 	
-	private void sendNonFoldersList(SocketClient sender, boolean silent) {
+	private void sendNonFoldersList(boolean silent) {
 		if((References.printFileDataSendingMessage && !silent) || (References.printFileDataSendingSilent && silent)) {
 			log.info("Sending non-folders only list...");
 		}
@@ -568,9 +567,9 @@ public class AndroidListener implements Runnable {
 		}
 		//System.out.println("");
 		if (silent) {
-			sender.sendMessage("$system.files.nonfolderslist.silentresult.list=" + text);
+			References.sender.sendMessage("$system.files.nonfolderslist.silentresult.list=" + text);
 		} else {
-			sender.sendMessage("$system.files.nonfolderslist.result.list=" + text);
+			References.sender.sendMessage("$system.files.nonfolderslist.result.list=" + text);
 		}
 	}
 }
