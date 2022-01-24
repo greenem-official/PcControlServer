@@ -16,7 +16,7 @@ public class RunningProcesses {
 	private static Logger log = References.log4j;
 	
 	//public static SocketClient sender; //create one in references later
-	public static Thread LcurrentThread;
+	public static Thread thisCurrentThread;
 	
 	public static void checkExetutionPerms(SocketClient sender, String file) {
 		//References.sender = sender;
@@ -49,13 +49,14 @@ public class RunningProcesses {
 		
 		References.currentRunningSubProcess = ps.get();
 		References.currentRunningSubProcessBufferedReader = new BufferedReader(new InputStreamReader(References.currentRunningSubProcess.getInputStream()));
+		References.currentRunningSubProcessPrintWriter = new PrintWriter(References.currentRunningSubProcess.getOutputStream());
 		
 		References.sender.sendMessage("$system.files.executefile.result.success");
 		
 		References.subProcessNeedToBeOnline = true;
 		
-		LcurrentThread = new Thread(startListeningRunnable);
-		LcurrentThread.start();
+		thisCurrentThread = new Thread(startListeningRunnable);
+		thisCurrentThread.start();
 	}
 	
 	private static Runnable startListeningRunnable = new Runnable() {
@@ -79,19 +80,27 @@ public class RunningProcesses {
 	};
 	
 	public static void sendInput(String input) {
-		PrintWriter p = new PrintWriter(References.currentRunningSubProcess.getOutputStream());
+		PrintWriter p = References.currentRunningSubProcessPrintWriter;
 		p.println(input);
 		p.flush();
 	}
 	
 	public static void stopProcess() throws ClassNotFoundException { // NoClassDefFoundError: pcControl/execution/RunningProcesses    cleanDisconnectedUserChanges
 		try {
+			if(!References.subProcessNeedToBeOnline) {
+				if(References.connected) {
+					References.sender.sendMessage("$servermessage.text=The process is already stopped.");	
+				}
+				return;
+			}
 			References.subProcessNeedToBeOnline = false;
-			if(LcurrentThread!=null) {
-				System.out.println(References.currentRunningSubProcess.getClass().getName());
-				LcurrentThread.interrupt();
+			if(thisCurrentThread!=null) {
+				//System.out.println(References.currentRunningSubProcess.getClass().getName());
+				thisCurrentThread.interrupt();
 				killProcessCompletely(((java.lang.Process)References.currentRunningSubProcess).toHandle());
-				References.sender.sendMessage("$servermessage.text=Stopped the process.");
+				if(References.connected) {
+					References.sender.sendMessage("$servermessage.text=Stopped the process.");
+				}
 			}
 		}
 		catch(NoSuchMethodError e) {

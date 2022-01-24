@@ -1,6 +1,7 @@
 package pcControl.test;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -45,10 +46,9 @@ public class Test3 {
 //			System.out.println("$system.files.changelocation.result.denied.old=" + References.arLocation);	
 //		}
 		
-		String s = "C:\\";
-		s = s.replace("\\","//");
-		String[] parts = s.split("/");
-		System.out.println(parts.length);
+		String s = "c:\\";
+		System.out.println(new File(s).exists());
+		
 //		File f = new File("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\logs");
 //		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("DD-MM-YYYY");  
 //		LocalDateTime now = LocalDateTime.now();  

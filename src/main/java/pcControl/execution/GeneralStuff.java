@@ -52,8 +52,12 @@ public class GeneralStuff {
 	
 	public static void replaceAllBackslashesInConfig() {
 		Path path = null;
+		File f = new File(References.configsDir, "mainconfig.yml");
+		if(!f.exists()) {
+			return;
+		}
 		try {
-			path = Paths.get(new File(References.configsDir, "mainconfig.yml").getCanonicalPath());
+			path = Paths.get(f.getCanonicalPath());
 		} catch (IOException e1) {
 			log.error("getCanonicalPath IOException");
 			e1.printStackTrace();

@@ -15,8 +15,8 @@
       <outputDirectory>bin</outputDirectory>
 
       <includes>
-        <include>com.group.id:project-launch1</include>
-        <include>com.group.id:project-launch2</include>
+        <!--include>com.group.id:project-launch1</include>
+        <include>com.group.id:project-launch2</include-->
       </includes>
 
     </dependencySet>
@@ -30,10 +30,10 @@
       <outputDirectory>lib</outputDirectory>
 
       <includes>
-        <include>com.group.id:project-lib1</include>
+        <!--include>com.group.id:project-lib1</include>
         <include>com.group.id:project-lib2</include>
         <include>com.group.id:project-lib3</include>
-        <include>com.group.id:project-lib4</include>
+        <include>com.group.id:project-lib4</include-->
       </includes>
 
     </dependencySet>

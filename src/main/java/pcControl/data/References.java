@@ -34,6 +34,8 @@ public class References {
 	public static boolean currentSocketVerified = false;
 	public static String password = "0000";
 	
+	public static boolean connected = false;
+	
 	public static boolean STOPPING = false;
 	
 	public static long lastArInSocketActivity = -1L;
@@ -52,6 +54,7 @@ public class References {
 	
 	public volatile static Process currentRunningSubProcess = null;
 	public static BufferedReader currentRunningSubProcessBufferedReader = null;
+	public static PrintWriter currentRunningSubProcessPrintWriter = null;
 	public static File appExecutionDir = null;
 	public static File configsDir = null;
 	

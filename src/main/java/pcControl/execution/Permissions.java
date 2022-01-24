@@ -312,6 +312,10 @@ public class Permissions {
 			return false;
 		}
 		
+//		if(requested.equalsIgnoreCase("a.exe")) {
+//			System.out.println("exists");
+//		}
+		
 		try {
 			requested = fRequested.getCanonicalPath();
 		} catch (IOException e2) {

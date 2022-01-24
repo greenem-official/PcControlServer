@@ -72,3 +72,620 @@
 2022-01-24 00:16:41.813 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
 2022-01-24 00:16:41.814 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
 2022-01-24 00:16:41.814 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 01:08:38.385 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 01:08:38.400 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 01:08:38.405 ERROR [pcControl.execution.GeneralStuff.replaceAllBackslashesInConfig(GeneralStuff.java:67)] - readAllBytes IOException
+2022-01-24 01:08:41.559 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 01:08:41.559 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 01:08:41.560 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 15:27:10.313 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:27:10.315 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:27:10.320 ERROR [pcControl.execution.GeneralStuff.replaceAllBackslashesInConfig(GeneralStuff.java:67)] - readAllBytes IOException
+2022-01-24 15:28:36.024 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 15:28:36.025 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 15:28:36.026 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 15:28:38.341 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:28:38.343 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:31:29.721 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:31:30.022 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 15:31:30.274 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 15:31:30.275 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 15:31:46.738 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: g:\
+2022-01-24 15:31:46.739 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 15:32:02.667 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: G:\
+2022-01-24 15:32:02.669 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 15:33:42.734 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > reload config
+2022-01-24 15:33:42.771 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:196)] - Successfully reloaded the config
+2022-01-24 15:33:51.131 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: G:\
+2022-01-24 15:33:51.132 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 15:34:00.359 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: c:\
+2022-01-24 15:34:00.360 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 15:37:16.907 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 15:37:16.908 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > reload config
+2022-01-24 15:37:16.916 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:196)] - Successfully reloaded the config
+2022-01-24 15:37:24.765 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:37:24.767 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:37:27.804 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:37:27.813 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 15:37:28.072 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 15:37:28.073 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 15:37:35.276 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: g:\
+2022-01-24 15:37:35.277 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 15:37:50.681 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: G:\g:
+2022-01-24 15:37:50.681 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 15:38:04.984 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:38:05.044 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:38:05.276 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:38:36.932 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:38:36.932 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:39:04.525 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 15:39:04.531 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:39:04.532 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:39:04.542 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 15:39:04.548 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:42:03.311 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 15:42:03.312 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 15:42:03.313 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 15:42:23.467 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:42:23.470 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:42:24.040 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:42:24.050 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 15:42:24.321 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 15:42:24.322 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 15:42:41.607 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:273)] - Requested path: g:\
+2022-01-24 15:42:41.607 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 15:43:11.525 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:43:11.555 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:43:11.590 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:43:20.441 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:187)] - Sending input to subprocess: "sdfsdf"
+2022-01-24 15:43:20.471 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "sdfsdf"
+2022-01-24 15:43:20.472 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:43:30.121 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:43:30.125 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:43:30.167 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:43:32.391 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:346)] - A command from Android to RSC: sdfsd sdfsd
+2022-01-24 15:43:32.392 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: Unknown command!
+
+2022-01-24 15:43:37.525 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:187)] - Sending input to subprocess: "asdsadsdf sdf sdf"
+2022-01-24 15:43:37.530 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "asdsadsdf"
+2022-01-24 15:43:37.531 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:51:16.367 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:51:21.092 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:53:16.798 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:53:16.803 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:53:16.838 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:53:19.820 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:53:19.820 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:53:25.532 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:53:25.551 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:53:25.589 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:53:32.029 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:53:32.030 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:53:38.693 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:53:38.698 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:53:38.743 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:53:43.606 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 15:53:43.606 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 15:58:35.417 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:329)] - Request to execute file "a.exe"
+2022-01-24 15:58:35.422 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 15:58:35.463 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 15:59:20.462 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 15:59:20.463 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 15:59:20.464 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 15:59:28.525 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:59:28.528 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:59:30.331 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 15:59:30.332 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 15:59:30.332 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 15:59:32.790 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 15:59:32.792 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 15:59:35.632 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:59:35.651 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 15:59:35.655 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 15:59:37.219 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 15:59:37.227 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 15:59:37.498 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 15:59:37.499 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 15:59:42.146 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:276)] - Requested path: C:\g:
+2022-01-24 15:59:42.146 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 16:03:08.299 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:03:08.300 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:03:12.382 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:03:12.390 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:03:12.619 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 16:03:12.620 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 16:03:17.741 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:276)] - Requested path: C:\g:
+2022-01-24 16:03:17.742 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 16:04:47.494 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:92)] - SocketException, Socket was closed
+2022-01-24 16:04:47.494 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:04:47.495 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:06.658 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:06.668 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:06.670 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:06.670 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:06.672 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:07.891 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:07.891 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:07.892 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:07.898 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:07.901 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:07.901 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:07.903 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:09.274 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:09.274 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:09.275 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:09.281 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:09.281 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:09.281 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:09.288 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:09.291 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:09.292 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:09.293 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.163 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.163 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.163 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.169 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.169 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.170 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.174 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.175 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.175 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.183 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:10.185 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.186 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.188 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.911 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.912 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.912 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.918 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.919 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.919 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.924 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.924 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.925 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.931 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.931 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.931 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.938 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:10.938 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.938 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.938 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.944 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.944 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.945 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.950 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.951 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.952 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.956 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.957 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.957 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.963 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.963 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.963 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.970 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.971 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.971 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:10.976 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:10.978 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:10.979 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:10.983 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.277 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.277 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.278 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.284 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.285 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.285 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.290 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.290 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.291 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.297 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.297 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.298 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.303 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.304 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.304 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.309 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.309 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.309 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.316 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:11.317 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:11.317 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:11.322 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:11.323 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:05:11.323 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:05:11.323 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:05:13.246 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:13.247 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:13.247 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:13.254 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:13.255 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:13.255 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:13.260 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:13.260 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:13.260 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:13.265 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:13.266 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:13.266 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.277 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $heartbeat.timeout
+2022-01-24 16:05:48.278 INFO [pcControl.network.ArSocketActivityKeeper.run(ArSocketActivityKeeper.java:39)] - Time out
+2022-01-24 16:05:48.779 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:92)] - SocketException, Socket was closed
+2022-01-24 16:05:48.779 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.779 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.779 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.780 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.787 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:48.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.788 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.788 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.795 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.795 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.796 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.803 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:48.803 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.803 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.804 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.810 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.810 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.811 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.817 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:05:48.818 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.818 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.818 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.826 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.826 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.827 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.834 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.834 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.835 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.951 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.951 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.951 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.958 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.958 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.959 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.965 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.965 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.965 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.971 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.971 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.972 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.978 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.979 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.979 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.985 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.985 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.985 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.990 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.991 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:48.991 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:48.998 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:48.999 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.000 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.007 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.007 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.008 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.014 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.014 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.015 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.021 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.021 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.022 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.027 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.028 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.028 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.035 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.035 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.036 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.042 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:05:49.042 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:05:49.042 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:05:49.049 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:08:16.912 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:92)] - SocketException, Socket was closed
+2022-01-24 16:08:16.912 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:16.913 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:16.913 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:16.920 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:16.920 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:36.853 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:36.972 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:36.973 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:36.973 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:36.979 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:36.980 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:36.980 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:36.987 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:36.987 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:36.988 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:36.993 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:36.993 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:36.994 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.001 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.001 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.002 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.007 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.007 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.008 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.014 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.014 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.014 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.021 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.022 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.022 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.028 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.028 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.029 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.035 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.036 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.036 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.042 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.042 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.043 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.050 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.050 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.050 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.056 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.057 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.057 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.065 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.065 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.066 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.077 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.078 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.078 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.086 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:08:37.086 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:37.087 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:37.087 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:37.104 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:08:37.105 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:08:43.807 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:43.807 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:43.808 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:43.816 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:43.817 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:43.817 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:43.825 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:43.825 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:43.825 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:43.832 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:08:43.833 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:43.833 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:08:43.833 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:08:43.842 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:08:43.842 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:08:43.843 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:09:35.863 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:09:35.864 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:09:35.864 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 16:09:38.775 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 16:09:38.778 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 16:09:40.864 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:63)] - App connected
+2022-01-24 16:09:40.875 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:09:41.123 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:220)] - Sending location...
+2022-01-24 16:09:41.124 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:210)] - Sending path separator = \
+2022-01-24 16:09:43.940 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:276)] - Requested path: g:
+2022-01-24 16:09:43.941 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\EclipceWorkspaces\Win10\Main\PcControl
+2022-01-24 16:11:08.976 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:11:08.978 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:14:01.151 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:14:01.152 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:14:01.152 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 16:14:03.011 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 16:14:03.014 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 16:14:03.522 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:03.533 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:14:03.799 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:222)] - Sending location...
+2022-01-24 16:14:03.800 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:212)] - Sending path separator = \
+2022-01-24 16:14:08.290 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: g:\/
+2022-01-24 16:14:08.291 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 16:14:19.015 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:334)] - Request to execute file "a.exe"
+2022-01-24 16:14:19.046 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 16:14:19.081 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 16:14:26.431 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:94)] - SocketException, Socket was closed
+2022-01-24 16:14:26.431 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:14:26.454 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 16:14:26.456 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 16:14:42.773 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:42.784 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:14:42.785 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:14:42.785 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:42.794 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:14:42.794 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:42.906 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:14:42.906 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:42.912 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:14:42.914 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:14:42.915 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:14:42.923 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:17.935 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $heartbeat.timeout
+2022-01-24 16:15:17.936 INFO [pcControl.network.ArSocketActivityKeeper.run(ArSocketActivityKeeper.java:39)] - Time out
+2022-01-24 16:15:18.438 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:94)] - SocketException, Socket was closed
+2022-01-24 16:15:18.438 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:15:18.439 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:18.439 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:18.445 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:18.445 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:18.452 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:18.453 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:18.453 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:18.459 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:32.547 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:32.548 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:32.560 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:32.561 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:32.569 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:32.569 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:32.577 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:32.578 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:32.578 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:32.588 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:32.589 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=You can't use this in the main directory!
+2022-01-24 16:15:32.589 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=C:\
+2022-01-24 16:15:32.590 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:15:36.250 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:15:36.250 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:15:36.251 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 16:15:38.531 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 16:15:38.534 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 16:15:40.030 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:15:40.041 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:15:40.273 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:222)] - Sending location...
+2022-01-24 16:15:40.274 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:212)] - Sending path separator = \
+2022-01-24 16:15:45.281 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: G:\/
+2022-01-24 16:15:45.282 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 16:15:49.624 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:334)] - Request to execute file "a.exe"
+2022-01-24 16:15:49.650 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 16:15:49.690 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 16:16:03.425 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:189)] - Sending input to subprocess: "sdfsdf"
+2022-01-24 16:16:03.430 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "sdfsdf"
+2022-01-24 16:16:03.431 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 16:16:09.024 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:334)] - Request to execute file "a.exe"
+2022-01-24 16:16:09.031 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 16:16:09.066 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 16:16:16.324 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:351)] - A command from Android to RSC: asdasd asd
+2022-01-24 16:16:16.324 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: Unknown command!
+
+2022-01-24 16:16:22.009 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:189)] - Sending input to subprocess: "asdasfsdf"
+2022-01-24 16:16:22.013 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "asdasfsdf"
+2022-01-24 16:16:22.014 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 16:16:42.308 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:334)] - Request to execute file "a.exe"
+2022-01-24 16:16:42.314 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 16:16:42.349 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 16:16:49.292 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:189)] - Sending input to subprocess: "sdfsdfsdf"
+2022-01-24 16:16:49.297 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "sdfsdfsdf"
+2022-01-24 16:16:49.297 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 16:16:52.505 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:16:52.516 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=Stopped the process.
+2022-01-24 16:16:57.213 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:16:57.222 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:16:57.467 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:222)] - Sending location...
+2022-01-24 16:16:57.468 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:212)] - Sending path separator = \
+2022-01-24 16:17:16.673 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: g:\/
+2022-01-24 16:17:16.674 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 16:17:20.906 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:334)] - Request to execute file "a.exe"
+2022-01-24 16:17:20.910 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.executefile.result.success
+2022-01-24 16:17:20.944 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=Enter anything
+2022-01-24 16:17:30.640 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:189)] - Sending input to subprocess: "asdsdfsdf sdf sd dsf"
+2022-01-24 16:17:30.644 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.output=You entered "asdsdfsdf"
+2022-01-24 16:17:30.645 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.execution.stopped.justend
+2022-01-24 16:17:46.793 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: c:\/
+2022-01-24 16:17:46.794 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:18:27.937 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:18:27.938 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:18:27.938 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 16:18:32.381 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 16:18:32.383 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 16:18:35.000 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:18:35.020 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:18:41.169 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:18:41.177 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:18:41.427 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:222)] - Sending location...
+2022-01-24 16:18:41.428 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:212)] - Sending path separator = \
+2022-01-24 16:18:43.928 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: g:\
+2022-01-24 16:18:43.929 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 16:18:47.506 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: c:\
+2022-01-24 16:18:47.507 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:20:51.588 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: C:\
+2022-01-24 16:20:51.589 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:20:56.056 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: c:\
+2022-01-24 16:20:56.057 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:21:02.382 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:94)] - SocketException, Socket was closed
+2022-01-24 16:21:02.382 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.499 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.508 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:21:20.511 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.512 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.520 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:21:20.522 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.525 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.770 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.770 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.775 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.776 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.784 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:20.784 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:20.789 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:21:20.790 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:21:21.475 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.475 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.481 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.481 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.487 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:21:21.491 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.492 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.500 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.501 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.786 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.793 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.793 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.799 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:21:21.800 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:21:21.800 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:21:21.801 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:21:21.801 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.802 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:21.808 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:21.808 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:21:56.826 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $heartbeat.timeout
+2022-01-24 16:21:56.828 INFO [pcControl.network.ArSocketActivityKeeper.run(ArSocketActivityKeeper.java:39)] - Time out
+2022-01-24 16:21:57.331 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:94)] - SocketException, Socket was closed
+2022-01-24 16:21:57.331 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $servermessage.text=The process is already stopped.
+2022-01-24 16:21:57.331 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:21:57.332 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.766 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.766 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.776 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.778 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.787 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.798 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.799 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.809 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.809 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.819 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:05.819 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.820 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.832 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.833 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.844 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.846 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.855 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:05.856 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:22:05.856 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.857 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.863 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.863 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.869 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:05.869 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.alreadyConnected
+2022-01-24 16:22:05.869 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.870 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.876 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.877 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.886 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.886 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.893 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:05.893 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.894 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.901 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:05.901 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:05.908 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:05.908 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:53)] - App disconnected
+2022-01-24 16:22:12.987 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:22:12.988 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:22:12.988 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!
+2022-01-24 16:22:16.931 INFO [pcControl.PcControlMain.main(PcControlMain.java:57)] - REMOTE PC CONTROL APP - SERVER SIDE
+2022-01-24 16:22:16.934 INFO [pcControl.PcControlMain.main(PcControlMain.java:58)] - Starting input thread
+2022-01-24 16:22:18.711 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:64)] - App connected
+2022-01-24 16:22:18.720 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $auth.result.accepted
+2022-01-24 16:22:18.972 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:222)] - Sending location...
+2022-01-24 16:22:18.973 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:212)] - Sending path separator = \
+2022-01-24 16:22:24.207 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: g:\
+2022-01-24 16:22:24.208 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.accepted.path=G:\
+2022-01-24 16:22:27.205 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: c:\
+2022-01-24 16:22:27.206 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:22:36.271 INFO [pcControl.network.AndroidListener.run(AndroidListener.java:278)] - Requested path: C:\
+2022-01-24 16:22:36.272 INFO [pcControl.network.SocketClient.sendMessage(SocketClient.java:81)] - RSC sending: $system.files.changelocation.result.denied.old=G:\
+2022-01-24 16:23:53.597 INFO [pcControl.InputRunnable.run(InputRunnable.java:50)] - Closing input
+2022-01-24 16:23:53.598 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:145)] - > 
+2022-01-24 16:23:53.598 INFO [pcControl.PcControlMain.onConsoleCommand(PcControlMain.java:180)] - Unknown command!

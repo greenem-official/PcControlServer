@@ -51,6 +51,7 @@ public class AndroidListener implements Runnable {
 			while (true) {
 				if(!firstRun) {
 					log.info("App disconnected");
+					References.connected = false;
 					GeneralStuff.cleanDisconnectedUserChanges();
 				}
 				else {
@@ -61,6 +62,7 @@ public class AndroidListener implements Runnable {
 				}
 				References.ArSocket = References.ArServerSocket.accept();
 				log.info("App connected");
+				References.connected = true;
 				GeneralStuff.reloadFiles();
 				References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
 				References.arLocation = new File("C:\\"); //config
@@ -270,6 +272,9 @@ public class AndroidListener implements Runnable {
 																boolean success = false;
 																if(args[4].startsWith("new=")) {
 																	String text = inputLine.substring(41);
+																	if(!text.endsWith("/") && !text.endsWith("\\")) {
+																		text += "/";
+																	}
 																	log.info("Requested path: " + text);
 																	File f = new File(text);
 																	
@@ -301,6 +306,7 @@ public class AndroidListener implements Runnable {
 																	if(newFile!=null) {
 																		if(Permissions.hasFolderAccess(newFile.getCanonicalPath(), References.foldersAllowedToSee)) {
 																			sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
+																			success = true;
 																			References.arLocation = newFile;
 																			sendFilesList(sender, true);
 																			sendFoldersList(sender, true);
