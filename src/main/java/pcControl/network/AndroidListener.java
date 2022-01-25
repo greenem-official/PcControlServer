@@ -75,7 +75,7 @@ public class AndroidListener implements Runnable {
 				//log.info(References.ArSocket + "\n");
 	//			References.ArServerSocket.close();
 				References.ArOutSocket = new PrintWriter(References.ArSocket.getOutputStream(), true);
-				References.ArInSocket = new BufferedReader(new InputStreamReader(References.ArSocket.getInputStream()));
+				References.ArInSocket = new BufferedReader(new InputStreamReader(References.ArSocket.getInputStream(), "windows-1251"));
 				
 	//			Main.getInstance().ArSender.startConnection("128.72.175.213", 12345);
 				References.sender.startConnection(References.ArInSocket, References.ArOutSocket);

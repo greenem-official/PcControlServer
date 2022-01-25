@@ -46,12 +46,17 @@ public class PcControlMain {
 	// MAIN
 
 	public static void main(String[] args) {
+		//File jarDir = new File("");
 		boolean startNow = false;
-		File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-		References.appExecutionDir = jarDir;
+		//File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
+		try {
+			References.appExecutionDir = new File(PcControlMain.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
 		doLoggerFileStuff();
 		
-		References.log4j = LogManager.getLogger();
+		References.log4j = LogManager.getLogger(PcControlMain.class);
 		log = References.log4j;
 
 		log.info("REMOTE PC CONTROL APP - SERVER SIDE");
