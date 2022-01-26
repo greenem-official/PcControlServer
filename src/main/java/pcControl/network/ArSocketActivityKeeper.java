@@ -34,11 +34,11 @@ public class ArSocketActivityKeeper implements Runnable {
 	@Override
 	public void run() {
 		while(!stop && References.socket!=null && !References.socket.isClosed()) {
-			if(Calendar.getInstance().getTimeInMillis() - References.lastArInSocketActivity > 35000) {
+			if(Calendar.getInstance().getTimeInMillis() - References.lastArInSocketActivity > References.hearbeatThreshold) {
 				References.sender.sendMessage("$heartbeat.timeout");
 				log.info("Time out");
 				try {
-					Thread.currentThread().sleep(500);
+					Thread.currentThread().sleep(150);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -53,7 +53,7 @@ public class ArSocketActivityKeeper implements Runnable {
 			}
 			if(!stop){
 				try {
-					Thread.currentThread().sleep(35000);
+					Thread.currentThread().sleep(References.hearbeatThreshold);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

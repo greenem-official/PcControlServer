@@ -48,12 +48,15 @@ public class References {
 	public static boolean subProcessNeedToBeOnline = false;
 	
 	//settings
-	public static boolean printHeartbeats = false;
+	public static boolean printHeartbeats = true; //false
 	public static boolean printFileDataSendingMessage = true;
 	public static boolean printFileDataSendingList = false;
 	public static boolean printFileDataSendingSilent = false;
 	public static boolean fixEmptyLines = true;
 	public static boolean updateConfigOnNewVersion = false; // false
+	public static boolean printSocketException = true; // false
+	public static boolean realShutdown = false; // true
+	public static int hearbeatThreshold = 45000; // true
 	
 	public volatile static Process currentRunningSubProcess = null;
 	public static BufferedReader currentRunningSubProcessBufferedReader = null;

@@ -6,7 +6,6 @@ import java.util.Scanner;
 import org.apache.logging.log4j.Logger;
 
 import pcControl.data.References;
-import pcControl.logging.GeneralLogger;
 
 public class InputRunnable implements Runnable {
 	private static Logger log = References.log4j;

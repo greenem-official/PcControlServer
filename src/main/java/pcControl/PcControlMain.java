@@ -50,14 +50,9 @@ public class PcControlMain {
 
 	public static void main(String[] args) {
 //		setConsoleEncoding();
-		for (Object s : System.getProperties().keySet()) {
-			System.out.println(s);
-		}
-		System.out.println(System.getProperty("file.encoding"));
-		System.out.println("Физика");
 		
 		//File jarDir = new File("");
-		boolean startNow = false;
+		//boolean startNow = false; // comented old code from sm
 		//File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		try {
 			References.appExecutionDir = new File(PcControlMain.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
@@ -75,18 +70,23 @@ public class PcControlMain {
 
 		inputThread.start();
 
+		GeneralStuff.setConstants();
+		Permissions.init();
+		//GeneralStuff.replaceAllBackslashesInConfig();
+		GeneralStuff.reloadFiles();
+		
 		// getInstance().printTaskList();
 
-		if (startNow) {
-			References.PlSocketPort = PortTools.getInstance().getAvaliable();
-		}
+		//if (startNow) {
+		//	References.PlSocketPort = PortTools.getInstance().getAvaliable();
+		//}
 //		References.ArSocketPort = PortTools.getInstance().getAvaliable();
 		References.socketPort = 12345;
 
-		if (startNow) {
-			Thread socketThread = new Thread(SocketRunnable.getInstance());
-			socketThread.start();
-		}
+		//if (startNow) {
+		//	Thread socketThread = new Thread(SocketRunnable.getInstance());
+		//	socketThread.start();
+		//}
 
 		// Initialization
 
@@ -96,10 +96,10 @@ public class PcControlMain {
 
 		SocketClient pluginSocketClient = null;
 
-		if (startNow) {
-			pluginSocketClient = new SocketClient();
-			pluginSocketClient.startConnection("localhost", References.PlSocketPort);
-		}
+		//if (startNow) {
+		//	pluginSocketClient = new SocketClient();
+		//	pluginSocketClient.startConnection("localhost", References.PlSocketPort);
+		//}
 //		socketClient.sendMessage("message 1");
 
 		// SocketClient androidSocketClient = new SocketClient();
@@ -110,10 +110,7 @@ public class PcControlMain {
 
 		//log.info(References.appExecutionDir);
 		
-		GeneralStuff.setConstants();
-		Permissions.init();
-		//GeneralStuff.replaceAllBackslashesInConfig();
-		GeneralStuff.reloadFiles();
+		
 		
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
@@ -238,7 +235,13 @@ public class PcControlMain {
 		System.exit(0);
 	}
 	
-	public static void setConsoleEncoding() {
+	public static void setConsoleEncoding() { // not used
+		for (Object s : System.getProperties().keySet()) { // was in main
+			System.out.println(s);
+		}
+		System.out.println(System.getProperty("file.encoding"));
+		System.out.println("Физика");
+		
 		System.setProperty("file.encoding","Cp866");
 //		Field charset = null;
 //		try {

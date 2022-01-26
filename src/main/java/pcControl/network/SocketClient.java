@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.charset.Charset;
 
 import org.apache.logging.log4j.Logger;
@@ -87,6 +88,8 @@ public class SocketClient {
     	// Send
     	try {
 			outputStream.write(msg.getBytes(Charset.forName("windows-1251")));
+    	} catch (SocketException e) {
+    		// closed I think
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -110,7 +113,7 @@ public class SocketClient {
     		toLog = false;
     	}
     	if(References.fixEmptyLines) {
-    		msg = msg.replaceAll("\n\n", "\n");
+    		msg = msg.replaceAll("\n\n+", "\n");
     	}
     	if(toLog) {
     		log.info("RSC sending: " + msg);

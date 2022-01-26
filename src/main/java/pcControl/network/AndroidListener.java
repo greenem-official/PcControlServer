@@ -8,11 +8,12 @@ import java.io.PrintWriter;
 import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.SocketException;
-import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +22,6 @@ import pcControl.data.References;
 import pcControl.execution.GeneralStuff;
 import pcControl.execution.Permissions;
 import pcControl.execution.RunningProcesses;
-import pcControl.logging.GeneralLogger;
 
 public class AndroidListener implements Runnable {
 	private static Logger log = References.log4j;
@@ -94,7 +94,7 @@ public class AndroidListener implements Runnable {
 					}
 					catch(SocketException e) {
 						References.socket.close();
-						log.info("SocketException, Socket was closed");
+						log.info("SocketException, Socket was closed " + e);
 						break;
 					}
 					/*if(inputLine!=null && !inputLine.equals("$heartbeat.check")) {
@@ -130,6 +130,7 @@ public class AndroidListener implements Runnable {
 														if(inputLine.substring(23).equals(References.password)) {
 															References.currentSocketVerified = true;
 															References.sender.sendMessage("$auth.result.accepted");
+															//sendLocation();
 														}
 														else {
 															References.currentSocketVerified = false;
@@ -177,7 +178,7 @@ public class AndroidListener implements Runnable {
 																	//ProcessBuilder pb = new ProcessBuilder("shutdown /t 0 /s");
 																	//pb.start();
 																	
-																	//Runtime.getRuntime().exec("shutdown /t 0 /s"); // UNCOMMENT LATER
+																	//Runtime.getRuntime().exec("shutdown /t 0 /s");                                      // UNCOMMENT LATER
 																	
 																}
 															}
@@ -208,6 +209,7 @@ public class AndroidListener implements Runnable {
 										}
 										else if(args[1].equals("files")) {
 											if(len>2) {
+												//log.debug(args[2]);
 												//System.out.println(args[2]);
 												if(args[2].equals("getpathseparator")) {
 													if(len>3) {
@@ -220,13 +222,10 @@ public class AndroidListener implements Runnable {
 														}
 													}
 												}
-												if(args[2].equals("getlocation")) {
+												else if(args[2].equals("getlocation")) {
 													if(len>3) {
 														if(args[3].equals("request")) {
-															if(References.printFileDataSendingMessage) {
-																log.info("Sending location...");
-															}
-															References.sender.sendMessage("$system.files.getlocation.result.location=" + References.arLocation.getCanonicalPath());
+															sendLocation();
 														}
 													}
 												}
@@ -341,6 +340,13 @@ public class AndroidListener implements Runnable {
 																	RunningProcesses.checkExetutionPerms(References.sender, file);
 																}
 															}
+														}
+													}
+												}
+												else if(args[2].equals("dirinfo")) {
+													if(len>3) {
+														if(args[3].equals("request")) {
+															sendDirInfo();
 														}
 													}
 												}
@@ -514,6 +520,12 @@ public class AndroidListener implements Runnable {
 		}
 		String text = "";
 		File[] files = References.arLocation.listFiles();
+		if(files.equals(null)) {
+			if(!silent) {
+				References.sender.sendMessage("$servermessage.text=Cannot get list of files in there!");
+			}
+			return;
+		}
 		for (int i = 0; i < files.length; i++) {
 			try {
 				if(Permissions.hasFolderAccess(files[i].getCanonicalPath(), References.foldersAllowedToSee)) {
@@ -536,6 +548,12 @@ public class AndroidListener implements Runnable {
 		}
 		File[] files = References.arLocation.listFiles();
 		String text = "";
+		if(files.equals(null)) {
+			if(!silent) {
+				References.sender.sendMessage("$servermessage.text=Cannot get list of folders in there!");
+			}
+			return;
+		}
 		for (int i = 0; i < files.length; i++) {
 			if(files[i].isDirectory()) {
 				try {
@@ -560,6 +578,12 @@ public class AndroidListener implements Runnable {
 		}
 		File[] files = References.arLocation.listFiles();
 		String text = "";
+		if(files.equals(null)) {
+			if(!silent) {
+				References.sender.sendMessage("$servermessage.text=Cannot get list of non-folder files in there!");
+			}
+			return;
+		}
 		for (int i = 0; i < files.length; i++) {
 			if(!files[i].isDirectory()) {
 				try {
@@ -577,5 +601,39 @@ public class AndroidListener implements Runnable {
 		} else {
 			References.sender.sendMessage("$system.files.nonfolderslist.result.list=" + text);
 		}
+	}
+	
+	public static void sendLocation() {
+		if(References.printFileDataSendingMessage) {
+			log.info("Sending location...");
+		}
+		try {
+			References.sender.sendMessage("$system.files.getlocation.result.location=" + References.arLocation.getCanonicalPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void sendDirInfo() {
+		File f = References.arLocation;
+		Date date = new Date(f.lastModified());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss");
+		String result = "";
+		String slN = "&l&ine&";
+		result += "Name: " + f.getName() + slN;
+		result += "Full path: " + f.getPath() + slN;
+		result += "Last change: " + dateFormat.format(date) + slN;
+		result += "Size: " + GeneralStuff.getFormatedFolderSize(GeneralStuff.getFolderSize(f)) + slN;
+		if(!f.canRead()) {
+			result += "Can't be read" + slN;
+		}
+		if(!f.canWrite()) {
+			result += "Can't be written" + slN;
+		}
+		if(f.isHidden()) {
+			result += "Hidden directory" + slN;
+		}
+		References.sender.sendMessage("$system.files.dirinfo.result.info=" + result);
+		log.info("Sending directory info...");
 	}
 }

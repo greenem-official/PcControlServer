@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Main {
+public class TestMain {
 	
 	public static File directory;
 	

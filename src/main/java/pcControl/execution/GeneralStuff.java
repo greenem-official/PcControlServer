@@ -85,4 +85,68 @@ public class GeneralStuff {
 //			e.printStackTrace();
 //		}
 	}
+	
+	public static String getFormatedFolderSize(long bytes) {
+		if(bytes==-1L) {
+			return "UNKNOWN!";
+		}
+		if(bytes<1024) {
+			return bytes + " Bytes";
+		}
+		long kb = bytes/1024;
+		if(kb<1024) {
+			return kb + " KB";
+		}
+		long mb = kb/1024;
+		if(mb<1024) {
+			return mb + " MB";
+		}
+		long gb = mb/1024;
+		if(gb<1024) {
+			return gb + " GB";
+		}
+		long tb = gb/1024;
+		if(tb<1024) {
+			return tb + " TB";
+		}
+		long pb = tb/1024;
+		if(pb<1024) {
+			return pb + " PB";
+		}
+		long eb = pb/1024;
+		if(eb<1024) {
+			return eb + " EB";
+		}
+		long zb = eb/1024;
+		if(zb<1024) {
+			return zb + " ZB";
+		}
+		long yb = zb/1024;
+		if(yb<1024) {
+			return yb + " YB";
+		}
+		long bb = yb/1024;
+		if(bb<1024) {
+			return bb + " BB";
+		}
+		//GeopByte (real?) is also gb, why lol
+		return bb/1024 + " GeopBytes";
+	}
+	
+	public static long getFolderSize(File dir) {
+	    long size = 0;
+	    try {
+		    for (File file : dir.listFiles()) {
+		        if (file.isFile()) {
+		            //System.out.println(file.getName() + " " + file.length());
+		            size += file.length();
+		        }
+		        else
+		            size += getFolderSize(file);
+		    }
+		    return size;
+	    } catch(NullPointerException e) {
+	    	return -1L;
+	    }
+	}
 }
