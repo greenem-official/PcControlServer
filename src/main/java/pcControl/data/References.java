@@ -2,6 +2,7 @@ package pcControl.data;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,11 +26,13 @@ public class References {
 	public static PrintWriter PlOutSocket = null;
 	public static BufferedReader PlInSocket = null;
 	
-	public static Socket ArSocket = null;
-	public static ServerSocket ArServerSocket = null;
-	public static int ArSocketPort = -1;
-	public static PrintWriter ArOutSocket = null;
-	public static BufferedReader ArInSocket = null;
+	public static Socket socket = null;
+	public static ServerSocket serverSocket = null;
+	public static int socketPort = -1;
+	public static PrintWriter outSocket = null;
+	public static BufferedReader inSocket = null;
+	public static OutputStream outputStream = null;
+	
 	
 	public static boolean currentSocketVerified = false;
 	public static String password = "0000";

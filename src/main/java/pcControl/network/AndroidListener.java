@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.SocketException;
+import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,7 +42,7 @@ public class AndroidListener implements Runnable {
 		try {
 			//ServerSocket serverSocket = new ServerSocket(References.getInstance().portServerSide);
 			try {
-				References.ArServerSocket = new ServerSocket(References.ArSocketPort);
+				References.serverSocket = new ServerSocket(References.socketPort);
 			}
 			catch (BindException e) {
 				log.info("THE PORT HAS ALREADY BEED TAKEN, PLEASE CLOSE OTHER INSTANSES OR OTHER APPS USING THIS PORT!");
@@ -60,7 +61,7 @@ public class AndroidListener implements Runnable {
 				if(References.STOPPING) {
 					return;
 				}
-				References.ArSocket = References.ArServerSocket.accept();
+				References.socket = References.serverSocket.accept();
 				log.info("App connected");
 				References.connected = true;
 				GeneralStuff.reloadFiles();
@@ -74,23 +75,25 @@ public class AndroidListener implements Runnable {
 				threadActivityKeeper.start();
 				//log.info(References.ArSocket + "\n");
 	//			References.ArServerSocket.close();
-				References.ArOutSocket = new PrintWriter(References.ArSocket.getOutputStream(), true);
-				References.ArInSocket = new BufferedReader(new InputStreamReader(References.ArSocket.getInputStream(), "windows-1251"));
+				References.outputStream = References.socket.getOutputStream();
+				References.outSocket = new PrintWriter(References.outputStream, true);
+				
+				References.inSocket = new BufferedReader(new InputStreamReader(References.socket.getInputStream(), "windows-1251"));
 				
 	//			Main.getInstance().ArSender.startConnection("128.72.175.213", 12345);
-				References.sender.startConnection(References.ArInSocket, References.ArOutSocket);
+				References.sender.startConnection(References.inSocket, References.outSocket, References.outputStream);
 				
 				String inputLine = "";
 				int times = 1;
-				while (inputLine!=null && !References.ArSocket.isClosed() && References.ArSocket.isConnected()
-						&& !References.ArSocket.isInputShutdown() && !References.ArSocket.isOutputShutdown()
-						&& References.ArInSocket!=null && References.ArOutSocket!=null) {
+				while (inputLine!=null && !References.socket.isClosed() && References.socket.isConnected()
+						&& !References.socket.isInputShutdown() && !References.socket.isOutputShutdown()
+						&& References.inSocket!=null && References.outSocket!=null) {
 					//log.info(References.ArSocket.isClosed());
 					try {
-						inputLine = References.ArInSocket.readLine();
+						inputLine = References.inSocket.readLine();
 					}
 					catch(SocketException e) {
-						References.ArSocket.close();
+						References.socket.close();
 						log.info("SocketException, Socket was closed");
 						break;
 					}
@@ -100,6 +103,9 @@ public class AndroidListener implements Runnable {
 					//log.info("ar");
 					//if(inputLine != null && inputLine != ""){
 					if(inputLine!=null && !inputLine.equals("")) {
+						//inputLine = new String(inputLine.getBytes(Charset.forName("windows-1251")));
+						//inputLine = new String(inputLine.getBytes(Charset.forName("Cp1251")));
+						//log.debug(inputLine);
 						References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
 	//					if (inputLine.equalsIgnoreCase("servermanager stop serversocket")) {
 	//						References.getInstance().outSocket.println("Socket Closed");
@@ -133,7 +139,7 @@ public class AndroidListener implements Runnable {
 															} catch (InterruptedException e) {
 																e.printStackTrace();
 															}
-															References.ArSocket.close();
+															References.socket.close();
 														}
 													}
 												}

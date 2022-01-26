@@ -5,10 +5,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.net.SocketException;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,6 +49,13 @@ public class PcControlMain {
 	// MAIN
 
 	public static void main(String[] args) {
+//		setConsoleEncoding();
+		for (Object s : System.getProperties().keySet()) {
+			System.out.println(s);
+		}
+		System.out.println(System.getProperty("file.encoding"));
+		System.out.println("Физика");
+		
 		//File jarDir = new File("");
 		boolean startNow = false;
 		//File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
@@ -71,7 +81,7 @@ public class PcControlMain {
 			References.PlSocketPort = PortTools.getInstance().getAvaliable();
 		}
 //		References.ArSocketPort = PortTools.getInstance().getAvaliable();
-		References.ArSocketPort = 12345;
+		References.socketPort = 12345;
 
 		if (startNow) {
 			Thread socketThread = new Thread(SocketRunnable.getInstance());
@@ -110,7 +120,7 @@ public class PcControlMain {
 				// log.info("Running Shutdown Hook");
 				InputRunnable.onExit();
 				try {
-					References.ArSocket.close();
+					References.socket.close();
 					References.PlSocket.close();
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -163,21 +173,21 @@ public class PcControlMain {
 				doExit();
 			} else if (s.equals("test1")) {
 				try {
-					log.info("1: " + References.ArSocket);
-					log.info("2: " + References.ArSocket.getKeepAlive());
-					log.info("3: " + References.ArSocket.getOOBInline());
-					log.info("4: " + References.ArSocket.getReceiveBufferSize());
-					log.info("5: " + References.ArSocket.getReuseAddress());
-					log.info("6: " + References.ArSocket.getSendBufferSize());
-					log.info("7: " + References.ArSocket.getSoLinger());
-					log.info("8: " + References.ArSocket.getSoTimeout());
-					log.info("9: " + References.ArSocket.getTcpNoDelay());
-					log.info("10: " + References.ArSocket.getTrafficClass());
-					log.info("11: " + References.ArSocket.isBound());
-					log.info("12: " + References.ArSocket.isClosed());
-					log.info("13: " + References.ArSocket.isConnected());
-					log.info("14: " + References.ArSocket.isInputShutdown());
-					log.info("15: " + References.ArSocket.isOutputShutdown());
+					log.info("1: " + References.socket);
+					log.info("2: " + References.socket.getKeepAlive());
+					log.info("3: " + References.socket.getOOBInline());
+					log.info("4: " + References.socket.getReceiveBufferSize());
+					log.info("5: " + References.socket.getReuseAddress());
+					log.info("6: " + References.socket.getSendBufferSize());
+					log.info("7: " + References.socket.getSoLinger());
+					log.info("8: " + References.socket.getSoTimeout());
+					log.info("9: " + References.socket.getTcpNoDelay());
+					log.info("10: " + References.socket.getTrafficClass());
+					log.info("11: " + References.socket.isBound());
+					log.info("12: " + References.socket.isClosed());
+					log.info("13: " + References.socket.isConnected());
+					log.info("14: " + References.socket.isInputShutdown());
+					log.info("15: " + References.socket.isOutputShutdown());
 				} catch (SocketException e) {
 					e.printStackTrace();
 				}
@@ -226,5 +236,25 @@ public class PcControlMain {
 
 	public static void doExit() {
 		System.exit(0);
+	}
+	
+	public static void setConsoleEncoding() {
+		System.setProperty("file.encoding","Cp866");
+//		Field charset = null;
+//		try {
+//			charset = Charset.class.getDeclaredField("defaultCharset");
+//		} catch (NoSuchFieldException e2) {
+//			e2.printStackTrace();
+//		} catch (SecurityException e2) {
+//			e2.printStackTrace();
+//		}
+//		charset.setAccessible(true);
+//		try {
+//			charset.set(null,null);
+//		} catch (IllegalArgumentException e2) {
+//			e2.printStackTrace();
+//		} catch (IllegalAccessException e2) {
+//			e2.printStackTrace();
+//		}
 	}
 }

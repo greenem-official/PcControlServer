@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.nio.charset.Charset;
@@ -20,6 +21,7 @@ public class SocketClient {
     private PrintWriter out;
     private BufferedReader in;
     private InputStream inStream;
+    private OutputStream outputStream;
 //    private int port = -1;
 
 //    @Deprecated
@@ -55,17 +57,22 @@ public class SocketClient {
 //        References.sender = this;
 //    }
     
-    public void startConnection(BufferedReader in, PrintWriter out) { //DEPRECATED
+    public void startConnection(BufferedReader in, PrintWriter out, OutputStream outputStream) {
         this.in = in;
         this.out = out;
+        this.outputStream = outputStream;
         References.sender = this;
     }
 
     public void sendMessage(String msg) {
     	//msg = new String(msg.getBytes(Charset.forName("Cp1251"))); // Cp1251 windows-1251
+    	
     	//msg = new String(msg.getBytes(Charset.forName("windows-1251"))); // Cp1251 windows-1251
+    	
     	//System.out.println(msg);
     	//log.info(out.toString() + " | " + in.toString());
+    	
+    	// Check
     	if(out==null) {
     		log.info("null socket");
     	}
@@ -73,8 +80,25 @@ public class SocketClient {
     		log.info("The app is not online!");
     		return;
     	}
-    	out.println(msg);
     	
+    	// Flush, "writeln"
+    	msg += "\n";
+    	
+    	// Send
+    	try {
+			outputStream.write(msg.getBytes(Charset.forName("windows-1251")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	try {
+			outputStream.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	//out.println(msg);
+    	
+    	
+    	// Log
     	boolean toLog = true;
     	if(!References.printFileDataSendingList && (msg.startsWith("$system.files.fileslist") || msg.startsWith("$system.files.folderslist") || msg.startsWith("$system.files.nonfolderslist"))) {
     		toLog = false;

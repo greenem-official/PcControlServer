@@ -22,9 +22,9 @@ public class ArSocketActivityKeeper implements Runnable {
 	private boolean stop = false;
 	
 	public void init () {
-		this.socket = References.ArSocket;
-		this.in = References.ArInSocket;
-		this.out = References.ArOutSocket;
+		this.socket = References.socket;
+		this.in = References.inSocket;
+		this.out = References.outSocket;
 	}
 	
 	public void stop() {
@@ -33,7 +33,7 @@ public class ArSocketActivityKeeper implements Runnable {
 
 	@Override
 	public void run() {
-		while(!stop && References.ArSocket!=null && !References.ArSocket.isClosed()) {
+		while(!stop && References.socket!=null && !References.socket.isClosed()) {
 			if(Calendar.getInstance().getTimeInMillis() - References.lastArInSocketActivity > 35000) {
 				References.sender.sendMessage("$heartbeat.timeout");
 				log.info("Time out");
@@ -43,7 +43,7 @@ public class ArSocketActivityKeeper implements Runnable {
 					e.printStackTrace();
 				}
 				try {
-					References.ArSocket.close();
+					References.socket.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
