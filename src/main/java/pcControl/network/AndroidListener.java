@@ -36,8 +36,12 @@ public class AndroidListener implements Runnable {
 		}
 		return INSTANCE;
 	}
+	
+	private boolean chekedSockedIsOk = true;
 
 	private boolean firstRun = true;
+	private boolean wasDisconnect = false;
+	private boolean gotNullOnLastConnect = false;
 	
 	@Override
 	public void run() {
@@ -52,19 +56,57 @@ public class AndroidListener implements Runnable {
 			}
 			//can be a loop here
 			while (true) {
-				if(!firstRun) {
+				if(References.printMiscellaneousDebug) {
+					log.info("loop start");
+				}
+				/*if(!firstRun) {
 					log.info("App disconnected");
 					References.connected = false;
 					GeneralStuff.cleanDisconnectedUserChanges();
 				}
 				else {
 					firstRun = false;
+				}*/
+				
+				wasDisconnect = false;
+				
+				//log.info("1) " + firstRun + " " + chekedSockedIsOk + " " + gotNullOnLastConnect);
+				
+				boolean firstRunC = firstRun;
+				
+				if(!firstRun) {
+					if(chekedSockedIsOk) {
+						if(!gotNullOnLastConnect) {
+							log.info("App disconnected");
+							References.connected = false;
+							GeneralStuff.cleanDisconnectedUserChanges();
+						}
+					}
+					wasDisconnect = true;
 				}
+				else {
+					firstRun = false;
+				}
+				
+				chekedSockedIsOk = true;
+				gotNullOnLastConnect = false;
+				
 				if(References.STOPPING) {
 					return;
 				}
 				References.socket = References.serverSocket.accept();
-				log.info("App connected");
+				if(References.printMiscellaneousDebug) {
+					log.info("loop middle");
+				}
+				//log.info(References.socket.isClosed());
+				//log.info(References.socket.isConnected());
+				
+				/*if(!References.socket.isClosed() && References.socket.isConnected()) {
+					log.info("App connected");
+				}
+				else {
+					continue;
+				}*/
 				References.connected = true;
 				GeneralStuff.reloadFiles();
 				References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
@@ -87,12 +129,32 @@ public class AndroidListener implements Runnable {
 				
 				String inputLine = "";
 				int times = 1;
+				boolean chekedSockedIsOk = true;
 				while (inputLine!=null && !References.socket.isClosed() && References.socket.isConnected()
 						&& !References.socket.isInputShutdown() && !References.socket.isOutputShutdown()
 						&& References.inSocket!=null && References.outSocket!=null) {
 					//log.info(References.ArSocket.isClosed());
 					try {
 						inputLine = References.inSocket.readLine();
+						if(References.printFirstConnectMessage) {
+							log.info("Debugging inputline after connction: " + inputLine);
+						}
+						//log.info("2) " + chekedSockedIsOk + " " + (inputLine==null) + " " + wasDisconnect + " " + firstRunC + " " + firstRun);
+						if(chekedSockedIsOk && inputLine==null) {
+							References.socket.close();
+							if(times==1) {
+								chekedSockedIsOk = false;
+								gotNullOnLastConnect = true;
+							}
+							break;
+						}
+						else {
+							if(wasDisconnect || firstRunC) {
+								log.info("App connected");
+								firstRunC = false;
+								wasDisconnect = false;
+							}
+						}
 					}
 					catch(SocketException e) {
 						References.socket.close();
@@ -458,15 +520,21 @@ public class AndroidListener implements Runnable {
 //						Main.getInstance().ArSender.sendMessage(s);
 //						Main.getInstance().ArSender.sendMessage(s);
 						
-						times++;
+						
 					}
 	//				if(References.ArSocket.isClosed()) {
 	//					log.info("closed");
 	//					continue;
 	//				}
+					times++;
 				}
+				
 				//log.info("new");
 				keeper.stop();
+				
+				if(References.printMiscellaneousDebug) {
+					log.info("loop end");
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
