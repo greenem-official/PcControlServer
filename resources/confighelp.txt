@@ -35,10 +35,16 @@ You will not be able to go to G:\, but will be able go to "G:/Unity" if you requ
 Available settings:
 
    folders-allowed-to-see
-   # What folders client will be able to see in the list and enter. Default: * (it means everything)
+   # What folders client will be able to see in the list and enter. Type: list. Default: * (it means everything)
    
    folders-and-files-allowed-to-use-execution:
-   # What folders client will be able to execute files in and single file directories. Default: some random thing after "- "
+   # What folders client will be able to execute files in and single file directories. Type: list. Default: some random thing after "- "
+   
+   connection-port: 12345
+   # What open port you want to use. Type: number. Default: 12345
+   
+   connection-password: "0000"
+   # The password for connecting. Type: string. Default: "0000"
    
 Attention!
 Yaml has problems with \ symbol, but the app will try to replace it with / when loading the config, so that's why it happens

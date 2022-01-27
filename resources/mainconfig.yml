@@ -9,5 +9,11 @@ settings:
    # What folders client will be able to execute files in and single file derictories.
    folders-and-files-allowed-to-use-execution:
       - 
+   
+   # What open port you want to use
+   connection-port: 12345
+   
+   # The password for connecting
+   connection-password: "0000"
 
 config-version: 1.0.0-3

@@ -26,6 +26,8 @@ import pcControl.execution.RunningProcesses;
 public class AndroidListener implements Runnable {
 	private static Logger log = References.log4j;
 	
+	public static Thread sizeCalculations = null;
+	
 	private static volatile AndroidListener INSTANCE;
 	
 	public static AndroidListener getInstance() {
@@ -178,8 +180,21 @@ public class AndroidListener implements Runnable {
 																	//ProcessBuilder pb = new ProcessBuilder("shutdown /t 0 /s");
 																	//pb.start();
 																	
-																	//Runtime.getRuntime().exec("shutdown /t 0 /s");                                      // UNCOMMENT LATER
+																	if(References.realShutdown) {
+																		Runtime.getRuntime().exec("shutdown /t 0 /s");
+																	}
 																	
+																}
+															}
+														}
+														else if(args[3].equals("restart")) {
+															if(len>4) {
+																if(args[4].equals("request")) {
+																	log.info("Restarting the pc...");
+																	References.sender.sendMessage("$system.management.shutdown.restart.accepted");
+																	if(References.realShutdown) {
+																		Runtime.getRuntime().exec("shutdown /t 0 /r"); // or /g?
+																	}
 																}
 															}
 														}
@@ -347,6 +362,9 @@ public class AndroidListener implements Runnable {
 													if(len>3) {
 														if(args[3].equals("request")) {
 															sendDirInfo();
+														}
+														if(args[3].equals("stopCalculatingSize")) {
+															GeneralStuff.sizeRequestId++;
 														}
 													}
 												}
@@ -520,7 +538,7 @@ public class AndroidListener implements Runnable {
 		}
 		String text = "";
 		File[] files = References.arLocation.listFiles();
-		if(files.equals(null)) {
+		if(files==null) {
 			if(!silent) {
 				References.sender.sendMessage("$servermessage.text=Cannot get list of files in there!");
 			}
@@ -548,7 +566,7 @@ public class AndroidListener implements Runnable {
 		}
 		File[] files = References.arLocation.listFiles();
 		String text = "";
-		if(files.equals(null)) {
+		if(files==null) {
 			if(!silent) {
 				References.sender.sendMessage("$servermessage.text=Cannot get list of folders in there!");
 			}
@@ -578,7 +596,7 @@ public class AndroidListener implements Runnable {
 		}
 		File[] files = References.arLocation.listFiles();
 		String text = "";
-		if(files.equals(null)) {
+		if(files==null) {
 			if(!silent) {
 				References.sender.sendMessage("$servermessage.text=Cannot get list of non-folder files in there!");
 			}
@@ -615,6 +633,7 @@ public class AndroidListener implements Runnable {
 	}
 	
 	public static void sendDirInfo() {
+		log.info("Sending directory info...");
 		File f = References.arLocation;
 		Date date = new Date(f.lastModified());
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss");
@@ -623,7 +642,7 @@ public class AndroidListener implements Runnable {
 		result += "Name: " + f.getName() + slN;
 		result += "Full path: " + f.getPath() + slN;
 		result += "Last change: " + dateFormat.format(date) + slN;
-		result += "Size: " + GeneralStuff.getFormatedFolderSize(GeneralStuff.getFolderSize(f)) + slN;
+		//result += "Size: " + GeneralStuff.getFormatedFolderSize(GeneralStuff.getFolderSize(f)) + slN;
 		if(!f.canRead()) {
 			result += "Can't be read" + slN;
 		}
@@ -633,7 +652,30 @@ public class AndroidListener implements Runnable {
 		if(f.isHidden()) {
 			result += "Hidden directory" + slN;
 		}
+		//result += "Calculating folder size..." + slN; //later
+		result += slN;
 		References.sender.sendMessage("$system.files.dirinfo.result.info=" + result);
-		log.info("Sending directory info...");
+		
+		/*sizeCalculations = new Thread(new Runnable() { // later
+			@Override
+			public void run() {
+				int savedId = GeneralStuff.sizeRequestId;
+				String size = GeneralStuff.getFormatedFolderSize(GeneralStuff.getFolderSize(f));
+				if(savedId!=GeneralStuff.sizeRequestId) {
+					return;	
+				}
+				String s = "$system.files.dirinfo.result.sizeinfo=";
+				if(References.folderSizeGotLimit) {
+					s+=">";
+					References.folderSizeGotLimit = false;
+					References.folderSizeHowManyChecked = 0;
+				}
+				s += size; 
+				References.sender.sendMessage(s);
+			}
+		});
+		sizeCalculations.start();*/
+		
+		//log.info("Sending directory info END");
 	}
 }

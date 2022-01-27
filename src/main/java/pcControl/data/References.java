@@ -32,7 +32,7 @@ public class References {
 	public static PrintWriter outSocket = null;
 	public static BufferedReader inSocket = null;
 	public static OutputStream outputStream = null;
-	
+	public static Thread arThread = null;
 	
 	public static boolean currentSocketVerified = false;
 	public static String password = "0000";
@@ -69,4 +69,7 @@ public class References {
 	//public static ArrayList<String> foldersAndFilesAllowedToOnlyExecute = null;
 	
 	public static Logger log4j = null;
+	
+	public static boolean folderSizeGotLimit = false;
+	public static long folderSizeHowManyChecked = 0;
 }

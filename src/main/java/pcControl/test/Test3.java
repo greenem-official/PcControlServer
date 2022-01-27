@@ -60,7 +60,8 @@ public class Test3 {
 		
 		//System.out.println(new File("C:\\").canRead());
 		//File f = new File("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl");
-		File f = new File("C:\\$AV_AVG");
+		
+		/*File f = new File("C:\\$AV_AVG");
 		System.out.println("1:" + f.canRead());
 		System.out.println("2:" + f.canWrite());
 		System.out.println("3:" + (f.getTotalSpace()/1024/1024/1024));
@@ -88,6 +89,10 @@ public class Test3 {
 		if(f.isHidden()) {
 			result += "Hidden directory" + "\n";
 		}
-        System.out.println(result);
+        System.out.println(result);*/
+        
+		String s = "ssdfsdfdfstr\n";
+		s = s.substring(0, s.length()-1);
+		System.out.println(s + " w");
 	}
 }

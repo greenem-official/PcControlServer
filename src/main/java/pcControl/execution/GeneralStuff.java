@@ -17,6 +17,7 @@ import pcControl.logging.GeneralLogger;
 
 public class GeneralStuff {
 	private static Logger log = References.log4j;
+	public static int sizeRequestId = 0;
 	
 	public static void cleanDisconnectedUserChanges() { //add more actions here
 		try {
@@ -134,19 +135,64 @@ public class GeneralStuff {
 	}
 	
 	public static long getFolderSize(File dir) {
-	    long size = 0;
-	    try {
-		    for (File file : dir.listFiles()) {
-		        if (file.isFile()) {
-		            //System.out.println(file.getName() + " " + file.length());
-		            size += file.length();
-		        }
-		        else
-		            size += getFolderSize(file);
-		    }
-		    return size;
-	    } catch(NullPointerException e) {
-	    	return -1L;
-	    }
+		References.folderSizeGotLimit = false;
+		References.folderSizeHowManyChecked = 0;
+		sizeRequestId++;
+		if(sizeRequestId>1000) {
+			sizeRequestId = 0;
+		}
+		return getFolderSize(dir, 1, 0, false, sizeRequestId);
+	}
+	
+	public static long getFolderSize(File dir, int recursionLevel, long previousSize, boolean gotLimit, int reqId) {
+		if(reqId!=sizeRequestId) {
+			return -4L; // already old request
+		}
+		if(previousSize < 23687091200L) { // 50gb)
+			if(recursionLevel < 20) {
+				if(References.folderSizeHowManyChecked<1000) {
+				    long size = 0;
+				    try {
+					    for (File file : dir.listFiles()) {
+					        if (file.isFile()) {
+					            //System.out.println(file.getName() + " " + file.length());
+					            size += file.length();
+					        }
+					        else {
+					        	long subsize = getFolderSize(file, recursionLevel + 1, size, gotLimit, reqId);
+					        	if(subsize<0) {
+					        		gotLimit = true;
+					        		References.folderSizeGotLimit = true;
+					        	}
+					        	else {
+					        		size += subsize;
+					        	}
+					        	References.folderSizeHowManyChecked+=1;
+					        }
+					    }
+	//				    try {
+	//						System.out.println(dir.getCanonicalPath() + " - " + size);
+	//					} catch (IOException e) {
+	//						e.printStackTrace();
+	//					}
+					    return size;
+				    } catch(NullPointerException e) {
+				    	return -1L;
+				    }
+				} else {
+					References.folderSizeGotLimit = true;
+					gotLimit = true;
+					return -3L;
+				}
+			} else {
+				References.folderSizeGotLimit = true;
+				gotLimit = true;
+				return -2L;
+			}
+		} else {
+			References.folderSizeGotLimit = true;
+			gotLimit = true;
+			return -1L;
+		}
 	}
 }

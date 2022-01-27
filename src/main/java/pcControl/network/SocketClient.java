@@ -100,6 +100,7 @@ public class SocketClient {
 		}
     	//out.println(msg);
     	
+    	msg = msg.substring(0, msg.length()-1);
     	
     	// Log
     	boolean toLog = true;
@@ -114,6 +115,9 @@ public class SocketClient {
     	}
     	if(References.fixEmptyLines) {
     		msg = msg.replaceAll("\n\n+", "\n");
+    	}
+    	if(msg.startsWith("$system.files.dirinfo.result.info=")) {
+    		msg = "[Dir info]"; // could do log.info(...); toLog = false;
     	}
     	if(toLog) {
     		log.info("RSC sending: " + msg);

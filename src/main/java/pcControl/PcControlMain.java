@@ -90,9 +90,9 @@ public class PcControlMain {
 
 		// Initialization
 
-		Thread androidSocketThread = new Thread(AndroidListener.getInstance());
+		References.arThread = new Thread(AndroidListener.getInstance());
 
-		androidSocketThread.start();
+		References.arThread.start();
 
 		SocketClient pluginSocketClient = null;
 
@@ -118,7 +118,7 @@ public class PcControlMain {
 				InputRunnable.onExit();
 				try {
 					References.socket.close();
-					References.PlSocket.close();
+					//References.PlSocket.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (NullPointerException e) {

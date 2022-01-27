@@ -114,6 +114,14 @@ public class Permissions {
 			            }
 		            	//log.debug(References.foldersAndFilesAllowedToExecute);
 		            }
+		            currentKey = "connection-port";
+		            if(entry.getKey().equals(currentKey)) {
+		            	References.socketPort = (int) entry.getValue();
+		            }
+		            currentKey = "connection-password";
+		            if(entry.getKey().equals(currentKey)) {
+		            	References.password = (String) entry.getValue();
+		            }
 		        }
 	            //System.out.println(resetAllowedToSee + " " + resetAllowedToExec);
 	            if(resetAllowedToSee) {

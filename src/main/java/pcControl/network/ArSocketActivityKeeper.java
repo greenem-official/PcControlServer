@@ -43,6 +43,7 @@ public class ArSocketActivityKeeper implements Runnable {
 					e.printStackTrace();
 				}
 				try {
+					//References.arThread.interrupt();
 					References.socket.close();
 				} catch (IOException e) {
 					e.printStackTrace();
