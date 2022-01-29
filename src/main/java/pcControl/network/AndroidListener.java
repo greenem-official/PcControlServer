@@ -158,7 +158,9 @@ public class AndroidListener implements Runnable {
 					}
 					catch(SocketException e) {
 						References.socket.close();
-						log.info("SocketException, Socket was closed " + e);
+						if(References.printSocketException) {
+							log.info("SocketException, Socket was closed " + e);
+						}
 						break;
 					}
 					/*if(inputLine!=null && !inputLine.equals("$heartbeat.check")) {

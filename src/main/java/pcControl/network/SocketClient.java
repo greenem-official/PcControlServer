@@ -104,10 +104,14 @@ public class SocketClient {
     	
     	// Log
     	boolean toLog = true;
+    	//String customText = "";
     	if(!References.printFileDataSendingList && (msg.startsWith("$system.files.fileslist") || msg.startsWith("$system.files.folderslist") || msg.startsWith("$system.files.nonfolderslist"))) {
     		toLog = false;
     	}
     	if(References.printFileDataSendingMessage && (msg.startsWith("$system.files.getlocation") || msg.startsWith("$system.files.getpathseparator"))) {
+    		toLog = false;
+    	}
+    	if(msg.startsWith("$system.getinfo.tasklist.result.text=")) {
     		toLog = false;
     	}
     	if(msg.trim().equals("")) {
