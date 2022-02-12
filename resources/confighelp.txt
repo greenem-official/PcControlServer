@@ -4,9 +4,9 @@ To be correct Yaml file, the config lines should look like this:
    
    something:
       sub-something:
-         - first thing (with space after "-"!)
-         - second thing
-         - C:\
+         - "first thing (with space after "-"!)"
+         - "second thing"
+         - "C:\"
    some-settings: 1000
    (... And so on)
    
@@ -14,14 +14,14 @@ Example of actual usage:
    
    settings:
       folders-allowed-to-see:
-         - all
+         - "all"
       folders-and-files-allowed-to-use-execution:
-         - C:\
-         - D:\
-         - G:\FirstFolder
-         - G:\SecondFolder\
-         - G:\ThirdFolder\app.exe
-         - !G:\ThirdFolder\dangerous.exe ( <- will not be included)
+         - "C:\"
+         - "D:\"
+         - "G:\FirstFolder"
+         - "G:\SecondFolder\"
+         - "G:\ThirdFolder\app.exe
+         - "!G:\ThirdFolder\dangerous.exe ( <- will not be included)
          
 In addition:
 If you do something like this:
@@ -30,7 +30,7 @@ If you do something like this:
       - "C:"
       - "G:/Unity"
       
-You will not be able to go to G:\, but will be able go to "G:/Unity" if you request it's full path. So, usually you should also allow the higher folder(s) (or the disk)
+And here you will not be able to go to G:\, but will be able go to "G:/Unity" if you request it's full path. So, usually you should also allow the higher folder(s) (or the disk)
 
 Available settings:
 
