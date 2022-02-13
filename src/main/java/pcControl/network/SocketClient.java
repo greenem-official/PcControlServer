@@ -58,11 +58,11 @@ public class SocketClient {
 //        References.sender = this;
 //    }
     
-    public void startConnection(BufferedReader in, PrintWriter out, OutputStream outputStream) {
+    public SocketClient startConnection(BufferedReader in, PrintWriter out, OutputStream outputStream) {
         this.in = in;
         this.out = out;
         this.outputStream = outputStream;
-        References.sender = this;
+        return this;
     }
 
     public void sendMessage(String msg) {

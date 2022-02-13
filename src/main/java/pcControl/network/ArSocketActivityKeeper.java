@@ -16,12 +16,12 @@ import pcControl.logging.GeneralLogger;
 public class ArSocketActivityKeeper implements Runnable {
 	private static Logger log = References.log4j;
 	
-	private Socket socket;
-	private BufferedReader in;
-	private PrintWriter out;
+	public Socket socket;
+	public BufferedReader in;
+	public PrintWriter out;
 	private boolean stop = false;
 	
-	public void init () {
+	public void init() {
 		this.socket = References.socket;
 		this.in = References.inSocket;
 		this.out = References.outSocket;

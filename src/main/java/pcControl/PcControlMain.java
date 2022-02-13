@@ -103,7 +103,7 @@ public class PcControlMain {
 //		socketClient.sendMessage("message 1");
 
 		// SocketClient androidSocketClient = new SocketClient();
-		References.sender = new SocketClient();
+		//References.sender = new SocketClient();
 //		androidSocketClient.startConnection("localhost", References.ArSocketPort);
 
 		// getInstance().test2();
@@ -117,10 +117,14 @@ public class PcControlMain {
 				// log.info("Running Shutdown Hook");
 				InputRunnable.onExit();
 				try {
-					References.socket.close();
+					AndroidListener.connections.forEach(conn -> {
+						try {
+							conn.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						});
 					//References.PlSocket.close();
-				} catch (IOException e) {
-					e.printStackTrace();
 				} catch (NullPointerException e) {
 					// e.printStackTrace();
 				}
