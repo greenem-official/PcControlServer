@@ -74,5 +74,5 @@ public abstract class ExtendedRunnableSocket implements Runnable {
 	public static boolean folderSizeGotLimit = false;
 	public static long folderSizeHowManyChecked = 0;
 	
-	private void sendFilesList(boolean silent, SocketClient sender, File arLocation) {}
+//	private void sendFilesList(boolean silent, SocketClient sender, File arLocation) {}
 }
