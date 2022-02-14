@@ -28,7 +28,7 @@ public class References {
 	
 	public static Socket socket = null;
 	public static ServerSocket serverSocket = null;
-	public static int socketPort = -1;
+	public static int serverSocketPort = -1;
 	public static PrintWriter outSocket = null;
 	public static BufferedReader inSocket = null;
 	public static OutputStream outputStream = null;

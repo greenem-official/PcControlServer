@@ -116,7 +116,7 @@ public class Permissions {
 		            }
 		            currentKey = "connection-port";
 		            if(entry.getKey().equals(currentKey)) {
-		            	References.socketPort = (int) entry.getValue();
+		            	References.serverSocketPort = (int) entry.getValue();
 		            }
 		            currentKey = "connection-password";
 		            if(entry.getKey().equals(currentKey)) {

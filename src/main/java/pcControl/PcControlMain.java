@@ -81,7 +81,7 @@ public class PcControlMain {
 		//	References.PlSocketPort = PortTools.getInstance().getAvaliable();
 		//}
 //		References.ArSocketPort = PortTools.getInstance().getAvaliable();
-		References.socketPort = 12345;
+		References.serverSocketPort = 12345;
 
 		//if (startNow) {
 		//	Thread socketThread = new Thread(SocketRunnable.getInstance());

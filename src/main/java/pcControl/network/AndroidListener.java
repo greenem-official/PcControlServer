@@ -52,7 +52,7 @@ public class AndroidListener implements Runnable {
 		try {
 			//ServerSocket serverSocket = new ServerSocket(References.getInstance().portServerSide);
 			try {
-				References.serverSocket = new ServerSocket(References.socketPort);
+				References.serverSocket = new ServerSocket(References.serverSocketPort);
 			}
 			catch (BindException e) {
 				log.info("THE PORT HAS ALREADY BEED TAKEN, PLEASE CLOSE OTHER INSTANSES OR OTHER APPS USING THIS PORT!");
@@ -101,7 +101,7 @@ public class AndroidListener implements Runnable {
 				
 				connections.add(socket);
 				
-				ExtendedRunnableSocket extendedRunnableSocket = new ExtendedRunnableSocket() {
+				ConnectionPerDevice newDeviceConnection = new ConnectionPerDevice() {
 					@Override
 					public void run() {
 						try {
@@ -211,7 +211,7 @@ public class AndroidListener implements Runnable {
 														if(currentSocketVerified==false) {
 															if(len>2) {
 																if(args[2].startsWith("password=")) {
-																	if(inputLine.substring(23).equals(password)) {
+																	if(inputLine.substring(23).equals(References.password)) {
 																		currentSocketVerified = true;
 																		sender.sendMessage("$auth.result.accepted");
 																		//sendLocation();
@@ -380,7 +380,7 @@ public class AndroidListener implements Runnable {
 																				File f = new File(text);
 																				
 																				if(f.exists()) {
-																					if(Permissions.hasFolderAccess(f.getCanonicalPath(), foldersAllowedToSee)) {
+																					if(Permissions.hasFolderAccess(f.getCanonicalPath(), References.foldersAllowedToSee)) {
 																						sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
 																						arLocation = f;
 																						success = true;
@@ -405,7 +405,7 @@ public class AndroidListener implements Runnable {
 																			if(args[4].equalsIgnoreCase("up")) {
 																				File newFile = arLocation.getParentFile();
 																				if(newFile!=null) {
-																					if(Permissions.hasFolderAccess(newFile.getCanonicalPath(), foldersAllowedToSee)) {
+																					if(Permissions.hasFolderAccess(newFile.getCanonicalPath(), References.foldersAllowedToSee)) {
 																						sender.sendMessage("$system.files.changelocation.result.accepted.path=" + newFile.getCanonicalPath());
 																						success = true;
 																						arLocation = newFile;
@@ -642,6 +642,7 @@ public class AndroidListener implements Runnable {
 						}
 						if (silent) {
 							sender.sendMessage("$system.files.fileslist.silentresult.list=" + text);
+							//log.info(text);
 						} else {
 							sender.sendMessage("$system.files.fileslist.result.list=" + text);
 						}
@@ -767,9 +768,9 @@ public class AndroidListener implements Runnable {
 					}
 				};
 				
-				extendedRunnableSocket.socket = socket;
+				newDeviceConnection.socket = socket;
 				
-				new Thread(extendedRunnableSocket).start();
+				new Thread(newDeviceConnection).start();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
