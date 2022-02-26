@@ -261,7 +261,7 @@ public class AndroidListener implements Runnable {
 																				System.err.println(e);
 																			}
 																		}
-																		Runtime.getRuntime().exec("shutdown /t 0 /r"); // or /g?
+																		//Runtime.getRuntime().exec("shutdown /t 0 /r"); // or /g?
 																	}
 																}
 															}
