@@ -9,6 +9,8 @@ import java.lang.reflect.Field;
 import java.net.SocketException;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -50,10 +52,6 @@ public class PcControlMain {
 
 	public static void main(String[] args) {
 //		setConsoleEncoding();
-		
-		//File jarDir = new File("");
-		//boolean startNow = false; // comented old code from sm
-		//File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		try {
 			References.appExecutionDir = new File(PcControlMain.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
 		} catch (URISyntaxException e1) {
@@ -65,6 +63,12 @@ public class PcControlMain {
 		log = References.log4j;
 
 		log.info("REMOTE PC CONTROL APP - SERVER SIDE");
+		
+		References.autostartPath = Paths.get(System.getProperty("user.home") + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" + "PcControlStartup.lnk");
+		// with .lnk, not a destination folder, only for copying!
+		File autoStartFile = References.autostartPath.toFile(); 
+		autoStartFile.delete(); // I think if it's not there, no exception won't be thrown
+		
 		log.info("Starting input thread");
 		Thread inputThread = new Thread(new InputRunnable());
 
@@ -75,42 +79,13 @@ public class PcControlMain {
 		//GeneralStuff.replaceAllBackslashesInConfig();
 		GeneralStuff.reloadFiles();
 		
-		// getInstance().printTaskList();
-
-		//if (startNow) {
-		//	References.PlSocketPort = PortTools.getInstance().getAvaliable();
-		//}
-//		References.ArSocketPort = PortTools.getInstance().getAvaliable();
 		References.socketPort = 12345;
-
-		//if (startNow) {
-		//	Thread socketThread = new Thread(SocketRunnable.getInstance());
-		//	socketThread.start();
-		//}
-
-		// Initialization
 
 		References.arThread = new Thread(AndroidListener.getInstance());
 
 		References.arThread.start();
 
-		SocketClient pluginSocketClient = null;
-
-		//if (startNow) {
-		//	pluginSocketClient = new SocketClient();
-		//	pluginSocketClient.startConnection("localhost", References.PlSocketPort);
-		//}
-//		socketClient.sendMessage("message 1");
-
-		// SocketClient androidSocketClient = new SocketClient();
-		References.sender = new SocketClient();
-//		androidSocketClient.startConnection("localhost", References.ArSocketPort);
-
-		// getInstance().test2();
-
-		//log.info(References.appExecutionDir);
-		
-		
+		References.sender = new SocketClient();		
 		
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {

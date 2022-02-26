@@ -9,6 +9,10 @@ import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.SocketException;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,7 +50,6 @@ public class AndroidListener implements Runnable {
 	@Override
 	public void run() {
 		try {
-			//ServerSocket serverSocket = new ServerSocket(References.getInstance().portServerSide);
 			try {
 				References.serverSocket = new ServerSocket(References.socketPort);
 			}
@@ -54,19 +57,10 @@ public class AndroidListener implements Runnable {
 				log.info("THE PORT HAS ALREADY BEED TAKEN, PLEASE CLOSE OTHER INSTANSES OR OTHER APPS USING THIS PORT!");
 				PcControlMain.doExit();
 			}
-			//can be a loop here
 			while (true) {
 				if(References.printMiscellaneousDebug) {
 					log.info("loop start");
 				}
-				/*if(!firstRun) {
-					log.info("App disconnected");
-					References.connected = false;
-					GeneralStuff.cleanDisconnectedUserChanges();
-				}
-				else {
-					firstRun = false;
-				}*/
 				
 				wasDisconnect = false;
 				
@@ -98,33 +92,21 @@ public class AndroidListener implements Runnable {
 				if(References.printMiscellaneousDebug) {
 					log.info("loop middle");
 				}
-				//log.info(References.socket.isClosed());
-				//log.info(References.socket.isConnected());
 				
-				/*if(!References.socket.isClosed() && References.socket.isConnected()) {
-					log.info("App connected");
-				}
-				else {
-					continue;
-				}*/
 				References.connected = true;
 				GeneralStuff.reloadFiles();
 				References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
 				References.arLocation = new File("C:\\"); //config
 				References.currentSocketVerified = false;
-				//SocketClient sender = PcControlMain.getInstance().ArSender;
 				ArSocketActivityKeeper keeper = new ArSocketActivityKeeper();
 				keeper.init();
 				Thread threadActivityKeeper = new Thread(keeper);
 				threadActivityKeeper.start();
-				//log.info(References.ArSocket + "\n");
-	//			References.ArServerSocket.close();
 				References.outputStream = References.socket.getOutputStream();
 				References.outSocket = new PrintWriter(References.outputStream, true);
 				
 				References.inSocket = new BufferedReader(new InputStreamReader(References.socket.getInputStream(), "windows-1251"));
 				
-	//			Main.getInstance().ArSender.startConnection("128.72.175.213", 12345);
 				References.sender.startConnection(References.inSocket, References.outSocket, References.outputStream);
 				
 				String inputLine = "";
@@ -133,7 +115,6 @@ public class AndroidListener implements Runnable {
 				while (inputLine!=null && !References.socket.isClosed() && References.socket.isConnected()
 						&& !References.socket.isInputShutdown() && !References.socket.isOutputShutdown()
 						&& References.inSocket!=null && References.outSocket!=null) {
-					//log.info(References.ArSocket.isClosed());
 					try {
 						inputLine = References.inSocket.readLine();
 						if(References.printFirstConnectMessage) {
@@ -163,25 +144,12 @@ public class AndroidListener implements Runnable {
 						}
 						break;
 					}
-					/*if(inputLine!=null && !inputLine.equals("$heartbeat.check")) {
-						log.info(inputLine);
-					}*/
-					//log.info("ar");
-					//if(inputLine != null && inputLine != ""){
+					
 					if(inputLine!=null && !inputLine.equals("")) {
 						//inputLine = new String(inputLine.getBytes(Charset.forName("windows-1251")));
 						//inputLine = new String(inputLine.getBytes(Charset.forName("Cp1251")));
 						//log.debug(inputLine);
 						References.lastArInSocketActivity = Calendar.getInstance().getTimeInMillis();
-	//					if (inputLine.equalsIgnoreCase("servermanager stop serversocket")) {
-	//						References.getInstance().outSocket.println("Socket Closed");
-	//						break;
-	//					}
-	//					References.outSocket.println("message back to PX");                                                //useful
-						
-						/*if(inputLine!=null && !inputLine.equals("$heartbeat.check")) {
-							log.info("From android: " + inputLine);
-						}*/
 						if(inputLine.startsWith("$")) {
 							String[] args = inputLine.substring(1).split("\\.");
 							int len = args.length;
@@ -257,11 +225,48 @@ public class AndroidListener implements Runnable {
 																	log.info("Restarting the pc...");
 																	References.sender.sendMessage("$system.management.shutdown.restart.accepted");
 																	if(References.realShutdown) {
+																		//log.info("6");
+																		Path originalPath = Paths.get(References.appExecutionDir.getCanonicalPath() + "\\RunAsAdmin.lnk");
+																		if(!originalPath.toFile().exists()) {
+																			//log.info("7");
+																			log.info("The link \"RunAsAdmin\" doesn't exist, the application cannot restart with admin rights or can't at all!");
+																			Path extraPath = Paths.get(References.appExecutionDir.getCanonicalPath() + "\\run.bat");
+																			if(!extraPath.toFile().exists()) {
+																				log.info("Even the usual run script is not avaliable!");
+																				if(References.autostartPath.toFile().exists()) {
+																					log.info("Some link with same name is already in the autostart folder, maybe it is the right one...");
+																				}
+																				else{
+																					log.info("There is no link with same name in the autostart folder already, the application will not be able to restart.");
+																				}
+																			}
+																			else {
+																				try {
+																					if(References.autostartPath.toFile().exists()) {
+																						log.info("Some link with same name is already in the autostart folder, ignoring the copy operation.");
+																					}
+																					else{
+																						Files.copy(extraPath, References.autostartPath);
+																					}
+																				} catch (IOException e) {
+																					System.err.println(e);
+																				}
+																			}
+																		}
+																		else {
+																			//log.info("8");
+																			try {
+																				Files.copy(originalPath, References.autostartPath, StandardCopyOption.REPLACE_EXISTING);
+																			} catch (IOException e) {
+																				System.err.println(e);
+																			}
+																		}
 																		Runtime.getRuntime().exec("shutdown /t 0 /r"); // or /g?
 																	}
 																}
 															}
 														}
+														log.info("5");
 													}
 												}												
 											}

@@ -2,6 +2,12 @@ package pcControl.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.FileSystemException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -91,8 +97,51 @@ public class Test3 {
 		}
         System.out.println(result);*/
         
-		String s = "ssdfsdfdfstr\n";
-		s = s.substring(0, s.length()-1);
-		System.out.println(s + " w");
+//		String s = "ssdfsdfdfstr\n";
+//		s = s.substring(0, s.length()-1);
+//		System.out.println(s + " w");
+		
+//		String value = "\"javaw -jar " + System.getProperty("user.dir") + "\\myJar.jar\"";
+//		WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run", "myJar autorun key", value);
+		
+//		Registry
+		
+		Path newLink = Paths.get("C:\\Users\\Ivan\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" + "link.lnk"); // with .lnk, only for coppying!
+		Path target = Paths.get("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\" + "run.bat");
+		
+//		createLink(newLink, target);
+		copyLink(Paths.get("G:\\EclipceWorkspaces\\Win10\\Main\\Builds\\PcControl\\" + "RunAsAdmin.lnk"), newLink);
+//		deleteLink(newLink);
+//		System.out.println(System.getProperty("user.home"));
+	}
+	
+	private static void createLink(Path newLink, Path target) {
+		try {
+		    Files.createSymbolicLink(newLink, target);
+		} catch (FileAlreadyExistsException e) {
+			// ?
+		} catch (FileSystemException e) {
+			System.out.println("A problem with deleting the file from autostart. Probably not enough permissions.");
+		} catch (IOException x) {
+		    System.err.println(x);
+		} catch (UnsupportedOperationException x) {
+		    // Some file systems do not support symbolic links.
+		    System.err.println(x);
+		}
+	}
+	
+	private static void deleteLink(Path link) {
+//		System.out.println(Files.isSymbolicLink(link));
+//		if(Files.isSymbolicLink(link)) {
+		link.toFile().delete();
+//		}
+	}
+	
+	private static void copyLink(Path from, Path to) {
+		try {
+			Files.copy(from, to, StandardCopyOption.COPY_ATTRIBUTES);
+		} catch (IOException e) {
+			System.err.println(e);
+		}
 	}
 }
