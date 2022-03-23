@@ -68,7 +68,7 @@ public class References {
 	public static boolean fixEmptyLines = true;
 	public static boolean updateConfigOnNewVersion = false; // false, debug: false
 	public static boolean printSocketException = false; // false, debug: true
-	public static boolean realShutdown = true; // true, debug: false
+	public static boolean realShutdown = false; // true, debug: false
 	public static boolean printFirstConnectMessage = false; // false, debug: true
 	public static boolean printMiscellaneousDebug = false; // false, debug: true
 	public static int hearbeatThreshold = 45000;
