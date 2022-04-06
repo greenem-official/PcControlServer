@@ -266,7 +266,7 @@ public class AndroidListener implements Runnable {
 																}
 															}
 														}
-														log.info("5");
+														//log.info("5");
 													}
 												}												
 											}
