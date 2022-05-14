@@ -373,9 +373,14 @@ public class AndroidListener implements Runnable {
 																	
 																	if(f.exists()) {
 																		if(Permissions.hasFolderAccess(f.getCanonicalPath(), References.foldersAllowedToSee)) {
-																			References.sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
-																			References.arLocation = f;
-																			success = true;
+																			if(f.isDirectory()) {
+																				References.sender.sendMessage("$system.files.changelocation.result.accepted.path=" + f.getCanonicalPath());
+																				References.arLocation = f;
+																				success = true;
+																			} else {
+																				References.sender.sendMessage("$system.files.changelocation.result.deniednotfolder.old=" + References.arLocation.getCanonicalPath());
+																				success = true; // just not to trigger the message
+																			}
 																		}
 																	}
 																	else {
@@ -452,9 +457,9 @@ public class AndroidListener implements Runnable {
 											if(len>2) {
 												if(args[2].startsWith("text=")) {
 													String text = inputLine.substring(24);
-													log.info("A command from Android to RSC: " + text);
+													log.info("A command from Android to PC: " + text);
 													//if(text.startsWith("SOME_COMMAND")) {}
-													References.sender.sendMessage("Unknown command!\n");
+													References.sender.sendMessage("$servermessage.text=Unknown command!"); //TODO check others for "servermessage"
 												}
 											}
 										}
@@ -466,7 +471,7 @@ public class AndroidListener implements Runnable {
 											if(len>2) {
 												if(args[2].startsWith("text=")) {
 													String text = inputLine.substring(24);
-													log.info("A message from Android to RSC: " + text);
+													log.info("A message from Android to PC: " + text);
 												}
 											}
 										}

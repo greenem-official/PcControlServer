@@ -124,7 +124,7 @@ public class SocketClient {
     		msg = "[Dir info]"; // could do log.info(...); toLog = false;
     	}
     	if(toLog) {
-    		log.info("RSC sending: " + msg);
+    		log.info("PC sending: " + msg);
     	}
 //      String resp = "";
 //		try {
