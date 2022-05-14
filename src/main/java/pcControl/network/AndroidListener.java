@@ -207,24 +207,26 @@ public class AndroidListener implements Runnable {
 														if(args[3].equals("usual")) {
 															if(len>4) {
 																if(args[4].equals("request")) {
-																	log.info("Shutting down the pc...");
-																	References.sender.sendMessage("$system.management.shutdown.usual.accepted");
 																	//ProcessBuilder pb = new ProcessBuilder("shutdown /t 0 /s");
 																	//pb.start();
 																	
 																	if(References.realShutdown) {
+																		log.info("Shutting down the pc...");
+																		References.sender.sendMessage("$system.management.shutdown.usual.accepted");
 																		Runtime.getRuntime().exec("shutdown /t 0 /s");
+																	} else {
+																		log.info("Disallowed shutting down the pc");
+																		References.sender.sendMessage("$system.management.shutdown.usual.denied");
 																	}
-																	
 																}
 															}
 														}
 														else if(args[3].equals("restart")) {
 															if(len>4) {
 																if(args[4].equals("request")) {
-																	log.info("Restarting the pc...");
-																	References.sender.sendMessage("$system.management.shutdown.restart.accepted");
 																	if(References.realShutdown) {
+																		log.info("Restarting the pc...");
+																		References.sender.sendMessage("$system.management.shutdown.restart.accepted");
 																		//log.info("6");
 																		Path originalPath = Paths.get(References.appExecutionDir.getCanonicalPath() + "\\RunAsAdmin.lnk");
 																		if(!originalPath.toFile().exists()) {
@@ -236,7 +238,7 @@ public class AndroidListener implements Runnable {
 																				if(References.autostartPath.toFile().exists()) {
 																					log.info("Some link with same name is already in the autostart folder, maybe it is the right one...");
 																				}
-																				else{
+																				else {
 																					log.info("There is no link with same name in the autostart folder already, the application will not be able to restart.");
 																				}
 																			}
@@ -245,7 +247,7 @@ public class AndroidListener implements Runnable {
 																					if(References.autostartPath.toFile().exists()) {
 																						log.info("Some link with same name is already in the autostart folder, ignoring the copy operation.");
 																					}
-																					else{
+																					else {
 																						Files.copy(extraPath, References.autostartPath);
 																					}
 																				} catch (IOException e) {
@@ -262,6 +264,9 @@ public class AndroidListener implements Runnable {
 																			}
 																		}
 																		Runtime.getRuntime().exec("shutdown /t 0 /r"); // or /g?
+																	} else {
+																		log.info("Disallowed restarting the pc");
+																		References.sender.sendMessage("$system.management.shutdown.restart.denied");
 																	}
 																}
 															}

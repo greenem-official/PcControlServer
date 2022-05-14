@@ -122,6 +122,10 @@ public class Permissions {
 		            if(entry.getKey().equals(currentKey)) {
 		            	References.password = (String) entry.getValue();
 		            }
+		            currentKey = "allow-real-shutdown";
+		            if(entry.getKey().equals(currentKey)) {
+		            	References.realShutdown = (boolean) entry.getValue();
+		            }
 		        }
 	            //System.out.println(resetAllowedToSee + " " + resetAllowedToExec);
 	            if(resetAllowedToSee) {
